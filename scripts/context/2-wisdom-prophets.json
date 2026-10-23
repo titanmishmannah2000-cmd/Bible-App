@@ -1,0 +1,609 @@
+{
+ "Job": {
+  "author": "Unknown; no one is named as author [[tbd:002:Book of Job]].",
+  "date": "Uncertain. Most modern scholars think it was written after the exile, around the 400s BC; others place it near the end of the exile, in Solomon’s time, or in the age of the patriarchs [[tbd:002:Book of Job]]. Job’s wealth in livestock fits the patriarchal era [[tbd:002:Book of Job]].",
+  "to": "Anyone asking why good people suffer [[tbd:002:Book of Job]].",
+  "why": "A good man loses everything [[bible:Job 1:13-19]], argues with friends who say he must deserve it [[bsn:Job 4:1–31:40]], and finally meets God in the whirlwind [[bible:Job 38:1]].",
+  "story": "God speaking from the whirlwind gives no explanation for why the righteous suffer; we learn to trust the Creator’s wisdom [[tbd:002:Book of Job]].",
+  "genre": "A prose prologue and epilogue around long poetic speeches [[tbd:002:Book of Job]] [[bsn:Job 4:1–31:40]].",
+  "structure": [
+   [
+    "Job’s losses",
+    1,
+    2
+   ],
+   [
+    "Debate with three friends",
+    3,
+    31
+   ],
+   [
+    "Elihu speaks",
+    32,
+    37
+   ],
+   [
+    "God answers from the storm",
+    38,
+    41
+   ],
+   [
+    "Restoration",
+    42,
+    42
+   ]
+  ],
+  "debate": "Who wrote it and when, and whether it combines earlier writings [[tbd:002:Book of Job]].",
+  "sourced": true
+ },
+ "Proverbs": {
+  "author": "Several writers, named in the book’s seven or more sections: Solomon (970–930 BC) for the main parts, “the wise”, Agur and King Lemuel [[tbd:016:Proverbs, Book of]]. Whether 1:1 means Solomon wrote chapters 1–9 is best left open [[tbd:016:Proverbs, Book of]].",
+  "date": "Solomon’s reign, 970–930 BC, with more of his proverbs gathered by King Hezekiah’s men (728–686 BC) [[tosn:Proverbs 25:1–29:27]] [[tbd:016:Proverbs, Book of]].",
+  "to": "Young people especially, “to give prudence to the simple, knowledge and discretion to the young man” [[bible:Proverbs 1:4]].",
+  "why": "Practical wisdom for daily life, built on the fear of the Lord, which is stressed throughout [[tbd:016:Proverbs, Book of]].",
+  "story": "Wisdom personified in chapter 8 is one of the Old Testament’s most remarkable pictures [[tbd:016:Proverbs, Book of]]; Christians see Jesus as the high point of God’s wisdom [[tosn:Proverbs 8:22–25]].",
+  "genre": "Poems and two-line sayings, often in contrasting pairs [[tbd:016:Proverbs, Book of]]. They describe how life generally works under God, not guarantees [[tbd:016:Proverbs, Book of]].",
+  "structure": [
+   [
+    "A father’s lessons and Lady Wisdom",
+    1,
+    9
+   ],
+   [
+    "Proverbs of Solomon",
+    10,
+    22
+   ],
+   [
+    "Sayings of the wise",
+    23,
+    24
+   ],
+   [
+    "Hezekiah’s collection",
+    25,
+    29
+   ],
+   [
+    "Agur and Lemuel; the worthy woman",
+    30,
+    31
+   ]
+  ],
+  "debate": "Its close parallel with the Egyptian Instruction of Amenemope in 22:17–23:11, and which came first [[tbd:016:Proverbs, Book of]].",
+  "sourced": true
+ },
+ "Ecclesiastes": {
+  "author": "The Teacher, Qoheleth, “son of David, king in Jerusalem” [[bible:Ecclesiastes 1:1]]. Scholars disagree: some credit Solomon, others a later writer using Solomon’s figure [[tbd:002:Book of Ecclesiastes]].",
+  "date": "If Solomon, around 940 BC; most who deny this date it after the exile, some to the 400s and many to the 200s BC [[tbd:002:Book of Ecclesiastes]]. Fragments from the 100s BC were found at Qumran [[tbd:002:Book of Ecclesiastes]].",
+  "to": "Anyone searching for meaning [[tosn:Ecclesiastes 1:2–11]].",
+  "why": "It shows that a view of life which leaves God out is meaningless [[tbd:002:Book of Ecclesiastes]], and ends: fear God and keep his commandments [[bible:Ecclesiastes 12:13]].",
+  "story": "Honest wisdom about life’s limits: “vanity” is hebel, a breath or vapour [[tosn:Ecclesiastes 1:2]].",
+  "genre": "Reflections and sayings, with a closing note by an editor [[tosn:Ecclesiastes 12:9–14]].",
+  "structure": [
+   [
+    "All is vapour",
+    1,
+    2
+   ],
+   [
+    "A time for everything",
+    3,
+    6
+   ],
+   [
+    "Wisdom’s limits",
+    7,
+    10
+   ],
+   [
+    "Youth, age and the end of the matter",
+    11,
+    12
+   ]
+  ],
+  "debate": "Who wrote it and when [[tbd:002:Book of Ecclesiastes]].",
+  "sourced": true
+ },
+ "Song of Solomon": {
+  "author": "The title can mean the song is by Solomon (970–930 BC) or dedicated to him; authorship cannot be known with certainty [[tbd:019:Song of Solomon]].",
+  "date": "If by Solomon, the later 900s BC; otherwise later, but completed before 586 BC [[tbd:019:Song of Solomon]].",
+  "to": "Israel; it may gather love poetry from different periods [[tbd:019:Song of Solomon]].",
+  "why": "Love poetry between a woman and a man, celebrating faithful love and desire within marriage [[tosn:Song of Solomon 4:1–5:1]].",
+  "story": "Jewish and Christian scholars long read it as an allegory, Christians of the love between Christ and the church [[tbd:019:Song of Solomon]].",
+  "genre": "Love poetry, perhaps an anthology or dramatic poetry like Job [[tbd:019:Song of Solomon]].",
+  "structure": [
+   [
+    "Longing",
+    1,
+    2
+   ],
+   [
+    "Seeking and the wedding",
+    3,
+    5
+   ],
+   [
+    "Beauty and the strength of love",
+    6,
+    8
+   ]
+  ],
+  "debate": "How to interpret it: allegory, drama, or a collection of love songs [[tbd:019:Song of Solomon]].",
+  "sourced": true
+ },
+ "Isaiah": {
+  "author": "Isaiah son of Amoz of Jerusalem, whose ministry ran mainly from 740 to 700 BC [[tbd:009:Isaiah, Book of]]. Many scholars assign chapters 40–66 to a “second” or “third” Isaiah, but the book also shows signs of unity: chapters 36–39 form a bridge between its halves, and “Holy One of Israel” appears 12 times in chapters 1–39 and 14 times in 40–66 [[tbd:009:Isaiah, Book of]].",
+  "date": "Chapters 1–39 were mostly written by about 700 BC; 37:38 mentions Sennacherib’s death in 681 BC, so some parts come from Isaiah’s later years [[tbd:009:Isaiah, Book of]]. Chapters 40–66 address the exiles of about 550 BC [[tbd:009:Isaiah, Book of]].",
+  "to": "Judah in the Assyrian period, then the exiles in Babylon whom God promises to bring home [[tbd:009:Isaiah, Book of]].",
+  "why": "Because God is the Holy One of Israel he must punish sin, yet he graciously provides salvation; the Tyndale dictionary compares Isaiah’s place in the Old Testament to Romans in the New [[tbd:009:Isaiah, Book of]].",
+  "story": "Isaiah is usually regarded as the greatest of the writing prophets [[tbd:009:Isaiah, Book of]]. The sign of Immanuel to King Ahaz (ch. 7), the servant of the Lord who is “a light for the Gentiles” (42:6) and Cyrus raised up to free the exiles are among its key moments [[tbd:009:Isaiah, Book of]].",
+  "genre": "Prophetic poetry of great literary beauty, with a historical section in chapters 36–39 [[tbd:009:Isaiah, Book of]].",
+  "structure": [
+   [
+    "Judgement and the promised king",
+    1,
+    12
+   ],
+   [
+    "Oracles against the nations",
+    13,
+    23
+   ],
+   [
+    "The world judged and restored",
+    24,
+    35
+   ],
+   [
+    "Hezekiah and Assyria",
+    36,
+    39
+   ],
+   [
+    "Comfort and the servant",
+    40,
+    55
+   ],
+   [
+    "The new heavens and new earth",
+    56,
+    66
+   ]
+  ],
+  "debate": "Whether the book has one author or several; the naming of Cyrus (539 BC) is a main reason its unity has been questioned [[tbd:009:Isaiah, Book of]].",
+  "sourced": true
+ },
+ "Jeremiah": {
+  "author": "Jeremiah, the prophet from Anathoth, wrote most of it; his secretary Baruch wrote down his messages and may have edited them [[tbd:002:Book of Jeremiah]]. Chapter 52 is an editorial addition, since Jeremiah’s own words end at 51:64 [[tbd:002:Book of Jeremiah]].",
+  "date": "During Jeremiah’s ministry, about 627 to 586 BC; he was later taken to Egypt, around 584 BC [[tbd:002:Book of Jeremiah]].",
+  "to": "Judah before and after Jerusalem fell, the captives in Babylon (ch. 29), and the Jews in Egypt [[tbd:002:Book of Jeremiah]].",
+  "why": "To “to uproot and to tear down… to build and to plant” (1:10): Jeremiah condemned sin, urged submission to God’s judgement through Babylon, and pointed to a new covenant written on the heart [[tbd:002:Book of Jeremiah]].",
+  "story": "The fall of Jerusalem seen from inside [[tbd:010:Jeremiah (Person)]]. The promise of a new covenant (31:31–34) is the longest New Testament quotation from Jeremiah (Hebrews 8:8–12) [[tbd:002:Book of Jeremiah]], and Jesus’ death began that covenant [[tosn:Jeremiah 31:34]].",
+  "genre": "Prophetic poetry and sermons, with history of Jeremiah’s sufferings and symbolic acts [[tbd:002:Book of Jeremiah]].",
+  "structure": [
+   [
+    "Introduction",
+    1,
+    1
+   ],
+   [
+    "Prophecies against the Jews",
+    2,
+    25
+   ],
+   [
+    "Symbolic acts and sufferings before the siege",
+    26,
+    29
+   ],
+   [
+    "The Book of Hope",
+    30,
+    33
+   ],
+   [
+    "Events after the siege",
+    34,
+    45
+   ],
+   [
+    "Prophecies against the nations",
+    46,
+    51
+   ],
+   [
+    "Conclusion",
+    52,
+    52
+   ]
+  ],
+  "debate": "The order of the messages is not chronological and cannot be fully explained; the Greek Septuagint is about 2,700 words shorter and places chapters 46–51 after 25:13 [[tbd:002:Book of Jeremiah]].",
+  "sourced": true
+ },
+ "Lamentations": {
+  "author": "Traditionally Jeremiah, as the Septuagint and Latin Vulgate say; many scholars question this because the style differs, but shared phrases such as “terrors on every side” and “wormwood” support it [[tbd:012:Lamentations, Book of]]. The poems do not name their author [[tbd:012:Lamentations, Book of]].",
+  "date": "Shortly after Jerusalem fell in 586 BC; its vivid detail suggests an eyewitness [[tbd:012:Lamentations, Book of]].",
+  "to": "The Jews who had lived through the fall of Jerusalem, to give them words for their grief [[tbd:012:Lamentations, Book of]].",
+  "why": "To voice the grief of the whole people, to point them to God for comfort, and to explain the fall: the people’s sin, and God’s justice even toward his own [[tbd:012:Lamentations, Book of]].",
+  "story": "It shows lament as an act of faith: grief brought honestly to God, with hope at its centre in 3:22–23 [[tbd:012:Lamentations, Book of]].",
+  "genre": "Five poems forming a formal dirge; chapters 1–4 are acrostics on the Hebrew alphabet [[tbd:012:Lamentations, Book of]].",
+  "structure": [
+   [
+    "The city weeps",
+    1,
+    1
+   ],
+   [
+    "The Lord’s anger",
+    2,
+    2
+   ],
+   [
+    "Hope in the dark",
+    3,
+    3
+   ],
+   [
+    "The siege remembered",
+    4,
+    4
+   ],
+   [
+    "A closing prayer",
+    5,
+    5
+   ]
+  ],
+  "debate": "Whether Jeremiah wrote it, and why the poems use such complex alphabet patterns (perhaps to aid memory, or to express completeness) [[tbd:012:Lamentations, Book of]].",
+  "sourced": true
+ },
+ "Ezekiel": {
+  "author": "Ezekiel son of Buzi, of a priestly family, taken to Babylon with King Jehoiachin when he was about 25 [[tbd:005:Ezekiel, Book of]].",
+  "date": "His first vision came in 593 BC [[tosn:Ezekiel 1:2]]; the latest dated message is from the 27th year of exile, about 571 BC [[bible:Ezekiel 29:17]].",
+  "to": "The exiles settled at Tel-abib by the Kebar canal, who hoped for a quick return home [[tbd:005:Ezekiel, Book of]].",
+  "why": "To show why Jerusalem and its temple fell, and then to proclaim hope: a restored people, a new covenant, God’s Spirit and his glory returning [[tbd:005:Ezekiel, Book of]].",
+  "story": "God revealed himself in Babylon, against all expectations, showing he had not abandoned his people [[tbd:005:Ezekiel, Book of]]. The new heart (36:26) and the river of life (ch. 47) are taken up in the New Testament [[tosn:Ezekiel 36:16–38]] [[bible:Revelation 22:1-2]].",
+  "genre": "Visions, symbolic acts, parables and oracles, arranged by subject and by date [[tbd:005:Ezekiel, Book of]].",
+  "structure": [
+   [
+    "Ezekiel’s call",
+    1,
+    3
+   ],
+   [
+    "Judgement against Israel",
+    4,
+    24
+   ],
+   [
+    "Oracles against the nations",
+    25,
+    32
+   ],
+   [
+    "Proclamation of hope",
+    33,
+    48
+   ]
+  ],
+  "debate": "How chapters 34–48 are fulfilled beyond the return from exile: for Israel in the future, or in God’s work among all who share Abraham’s faith [[tbd:005:Ezekiel, Book of]]. The identity of Gog is also debated [[tosn:Ezekiel 38:1–39.29]].",
+  "sourced": true
+ },
+ "Daniel": {
+  "author": "The book does not name its author. Jewish and Christian tradition held that Daniel wrote it all, and chapters 7–12 speak in his voice [[tbd:002:Book of Daniel]].",
+  "date": "The stories run from about 605 BC to the early years of Cyrus, who took Babylon in 539 BC [[tbd:002:Book of Daniel]]. The conservative view dates the book to the 500s BC; another view dates it to about 165 BC [[tbd:002:Book of Daniel]].",
+  "to": "Jews living in exile under foreign rule, and later those suffering under Antiochus Epiphanes (175–163 BC) [[tbd:002:Book of Daniel]].",
+  "why": "To explain history through faith: God controls history and guides it to a goal, giving hope to people in crisis [[tbd:002:Book of Daniel]].",
+  "story": "Chapters 1–6 show how to stay faithful in a foreign land; chapters 7–12 show God’s rule over the empires [[tbd:002:Book of Daniel]]. It contains one of the clearest Old Testament teachings on resurrection (12:2) [[tbd:002:Book of Daniel]].",
+  "genre": "Stories and visions; in the Hebrew Bible it sits among the Writings, not the Prophets. Daniel 2:4–7:28 is in Aramaic [[tbd:002:Book of Daniel]].",
+  "structure": [
+   [
+    "Stories about Daniel",
+    1,
+    6
+   ],
+   [
+    "Daniel’s visions",
+    7,
+    12
+   ]
+  ],
+  "debate": "Its date (500s BC or about 165 BC), the identity of Darius the Mede, the four kingdoms, and the seventy sevens [[tbd:002:Book of Daniel]] [[tosn:Daniel 9:24–27]].",
+  "sourced": true
+ },
+ "Hosea": {
+  "author": "Hosea, whose ministry lasted at least 38 years, about 753 to 715 BC [[tbd:008:Hosea, Book of]].",
+  "date": "The late eighth century BC [[tbd:008:Hosea, Book of]].",
+  "to": "The northern kingdom of Israel in its last years; Hosea is the only writing prophet who lived and preached there [[tbd:008:Hosea, Book of]].",
+  "why": "To expose Israel’s unfaithfulness and urge them to return to God, showing through his own marriage God’s faithful, unbreakable love [[tbd:008:Hosea, Book of]].",
+  "story": "The first of the twelve shorter prophets [[tbd:008:Hosea, Book of]]. Matthew applies “out of Egypt I called my son” (11:1) to Jesus [[tosn:Hosea 11:1]].",
+  "genre": "Hosea’s marriage as a living sign, followed by prophecies mostly in the order given [[tosn:Hosea 4:1–14.9]] [[tbd:008:Hosea, Book of]].",
+  "structure": [
+   [
+    "Hosea’s marriage",
+    1,
+    3
+   ],
+   [
+    "God’s case against Israel",
+    4,
+    10
+   ],
+   [
+    "Love that will not let go",
+    11,
+    14
+   ]
+  ],
+  "debate": "How to understand Hosea’s marriage to Gomer, and whether the passages about Judah and future blessing are original; most scholars accept the book’s unity [[tbd:008:Hosea, Book of]].",
+  "sourced": true
+ },
+ "Joel": {
+  "author": "Joel son of Pethuel; Scripture tells us nothing more about either, and the name was common [[tbd:002:Book of Joel]].",
+  "date": "Uncertain: some date it after Nehemiah rebuilt the walls (around 400 BC), others earlier [[tbd:002:Book of Joel]].",
+  "to": "Judah and Jerusalem after a locust plague worse than any before [[tbd:002:Book of Joel]].",
+  "why": "Joel saw the plague as a warning of the greater day of the Lord and promised restoration if the people returned to God with prayer and fasting [[tbd:002:Book of Joel]].",
+  "story": "God promises to pour out his Spirit on all people, which Peter quotes at Pentecost [[bsn:Joel 2:28–3:21]] [[bible:Acts 2:16-21]].",
+  "genre": "Prophetic poetry using the language of the day of the Lord [[bsn:Joel 2:28–3:21]].",
+  "structure": [
+   [
+    "The locusts and a call to return",
+    1,
+    2
+   ],
+   [
+    "The Spirit and the day of Yahweh",
+    3,
+    3
+   ]
+  ],
+  "debate": "Its date, and whether the invaders of chapter 2 are locusts, a human army or future battles [[tbd:002:Book of Joel]] [[tosn:Joel 2:1–11]].",
+  "sourced": true
+ },
+ "Amos": {
+  "author": "Amos, a herdsman and grower of fig trees from Tekoa, south of Jerusalem; there is no strong reason to think someone else wrote the book [[tbd:002:Book of Amos]].",
+  "date": "Under Uzziah and Jeroboam II (792–740 BC), probably no later than about 760 BC [[tbd:002:Book of Amos]].",
+  "to": "The prosperous northern kingdom of Israel; he preached mainly at Bethel [[tbd:002:Book of Amos]].",
+  "why": "One of the Bible’s strongest warnings against injustice, oppression and religious hypocrisy [[tbd:002:Book of Amos]].",
+  "story": "A farmer from Judah sent north to a nation richer than at any time since Solomon [[tbd:002:Book of Amos]]. God wanted justice to flow like water (5:24) [[tbd:002:Book of Amos]].",
+  "genre": "Spoken oracles, five visions and a short story from Amos’s life (7:10–14) [[tbd:002:Book of Amos]].",
+  "structure": [
+   [
+    "Judgement on the nations and Israel",
+    1,
+    2
+   ],
+   [
+    "Words to Israel",
+    3,
+    6
+   ],
+   [
+    "Five visions",
+    7,
+    9
+   ]
+  ],
+  "debate": "Whether the visions and oracles were joined later, and whether some passages were added; the evidence does not require it [[tbd:002:Book of Amos]].",
+  "sourced": true
+ },
+ "Obadiah": {
+  "author": "Obadiah; we know almost nothing about him, not even his father’s name or home town [[tbd:002:Book of Obadiah]].",
+  "date": "Probably just before or around the fall of Jerusalem in 586 BC [[tbd:002:Book of Obadiah]].",
+  "to": "Judah, with a message about Edom [[tbd:002:Book of Obadiah]].",
+  "why": "To announce Edom’s fall for its cruelty to Judah, and to show that God is in control even when Judah has lost its power [[tbd:002:Book of Obadiah]].",
+  "story": "Edom descended from Esau, Jacob’s brother, so its betrayal was a brother’s betrayal [[tosn:Obadiah 1:6]]. The remnant of Judah would survive and Zion be restored [[tbd:002:Book of Obadiah]].",
+  "genre": "A single prophetic vision [[tosn:Obadiah 1:1]].",
+  "structure": [
+   [
+    "Edom’s pride brought down",
+    1,
+    1
+   ]
+  ],
+  "debate": "Its exact date, and its shared wording with Jeremiah 49:7–22 [[tosn:Obadiah 1:2–4]] [[tosn:Jeremiah 49:7–22]].",
+  "sourced": true
+ },
+ "Jonah": {
+  "author": "Traditionally Jonah son of Amittai, a prophet under Jeroboam II (2 Kings 14:25); some think another author wrote it later [[tbd:002:Book of Jonah]].",
+  "date": "If by Jonah, during Jeroboam II’s reign (793–753 BC); others date it after Nineveh’s fall or after the exile [[tbd:002:Book of Jonah]].",
+  "to": "God’s people, who needed to learn that his mercy reaches even their enemies [[tbd:002:Book of Jonah]].",
+  "why": "Jonah ran because he knew Nineveh would repent and did not want God’s mercy shown to the hated Assyrians [[tbd:002:Book of Jonah]].",
+  "story": "Jesus used Jonah’s three days in the fish as a sign of his death and resurrection, and Nineveh’s repentance as a rebuke to his own generation [[tbd:002:Book of Jonah]].",
+  "genre": "A story rather than a collection of prophecies, with a psalm-like prayer in chapter 2 [[tbd:002:Book of Jonah]] [[tosn:Jonah 2:1–9]].",
+  "structure": [
+   [
+    "Running from God",
+    1,
+    1
+   ],
+   [
+    "Prayer from the fish",
+    2,
+    2
+   ],
+   [
+    "Nineveh repents",
+    3,
+    3
+   ],
+   [
+    "God’s question to Jonah",
+    4,
+    4
+   ]
+  ],
+  "debate": "Whether it is history or a parable; many scholars have defended its historical accuracy [[tbd:002:Book of Jonah]].",
+  "sourced": true
+ },
+ "Micah": {
+  "author": "Micah of Moresheth, a frontier town near Gath; he is named only in Micah 1:1 and Jeremiah 26:18 [[tbd:002:Book of Micah]].",
+  "date": "Under Jotham, Ahaz and Hezekiah (about 750–686 BC), though probably not that whole time; some messages come before Samaria fell in 722 BC [[tbd:002:Book of Micah]].",
+  "to": "Everyone, but especially Jerusalem and Samaria, land-grabbers, false prophets, judges, priests and dishonest merchants [[tbd:002:Book of Micah]].",
+  "why": "Judgement is coming, and the answer to sin is “to act justly, to love mercy, and to walk humbly with your God” (6:8), possible because God forgives [[tbd:002:Book of Micah]].",
+  "story": "It names Bethlehem as the birthplace of a ruler greater than David, quoted in Matthew 2 [[tosn:Micah 5:2]].",
+  "genre": "About 20 separate messages of judgement and hope [[tbd:002:Book of Micah]].",
+  "structure": [
+   [
+    "Judgement on Samaria and Judah",
+    1,
+    2
+   ],
+   [
+    "Leaders condemned, Zion restored",
+    3,
+    5
+   ],
+   [
+    "God’s case and final hope",
+    6,
+    7
+   ]
+  ],
+  "debate": "Its many sections may come from different times, so it is hard to state a single message [[tbd:002:Book of Micah]].",
+  "sourced": true
+ },
+ "Nahum": {
+  "author": "Nahum the Elkoshite; Elkosh is probably an unknown town, perhaps Elcesi in Judah [[tbd:002:Book of Nahum]].",
+  "date": "Probably the mid-600s BC, after Thebes fell (about 663 BC) and while Assyria still dominated Judah [[tbd:002:Book of Nahum]].",
+  "to": "Judah under Assyrian domination [[tbd:002:Book of Nahum]].",
+  "why": "To announce the fall of Nineveh and show God’s power in history, his care for those who trust him (1:7) and his promise to end Assyria’s oppression (1:13) [[tbd:002:Book of Nahum]].",
+  "story": "Nineveh, spared in Jonah’s time, returned to cruelty and fell in 612 BC [[tosn:Nahum 3:19]] [[tbd:002:Book of Nahum]].",
+  "genre": "A long poem about the fall of a city [[tbd:002:Book of Nahum]].",
+  "structure": [
+   [
+    "God’s justice",
+    1,
+    1
+   ],
+   [
+    "Nineveh falls",
+    2,
+    3
+   ]
+  ],
+  "debate": "Its date: some place it close to 612 BC, and scholars who doubt prophecy date it after Nineveh’s fall [[tbd:002:Book of Nahum]].",
+  "sourced": true
+ },
+ "Habakkuk": {
+  "author": "Habakkuk the prophet; we know very little about him beyond this book, and the musical notes in chapter 3 suggest he may have been a Levite [[tbd:002:Book of Habakkuk]].",
+  "date": "Probably begun between 612 and 605 BC and continued under King Jehoiakim (609–598 BC) [[tbd:002:Book of Habakkuk]].",
+  "to": "Judah in one of the hardest periods of its history, after Josiah’s death [[tbd:002:Book of Habakkuk]].",
+  "why": "To show that evil does not win forever: God rules history rightly, and the faithful see his work through faith [[tbd:002:Book of Habakkuk]].",
+  "story": "“The righteous will live by his faith” (2:4) became central to Paul’s teaching and to the Protestant Reformation [[tbd:002:Book of Habakkuk]].",
+  "genre": "A dialogue with God, five woes and a closing psalm-prayer [[tbd:002:Book of Habakkuk]].",
+  "structure": [
+   [
+    "Habakkuk complains, God answers",
+    1,
+    2
+   ],
+   [
+    "A prayer of trust",
+    3,
+    3
+   ]
+  ],
+  "debate": "Its exact date, and whether 2:4 means faith or faithfulness; the Hebrew ’emunah carries both steadfastness and trust [[tosn:Habakkuk 2:4]].",
+  "sourced": true
+ },
+ "Zephaniah": {
+  "author": "Zephaniah, whose name means “he whom the Lord protects or hides”; his family line is unusually long, and some think his great-great-grandfather was King Hezekiah [[tbd:002:Book of Zephaniah]].",
+  "date": "Under King Josiah (640–609 BC), likely around 630 BC, before Nineveh fell in 612 BC [[tbd:002:Book of Zephaniah]].",
+  "to": "Judah, still marked by the idolatry of Manasseh’s reign [[tbd:002:Book of Zephaniah]].",
+  "why": "To condemn Judah’s religious sins and corrupt leaders and to warn of the day of the Lord, while promising that God would restore the faithful [[tbd:002:Book of Zephaniah]].",
+  "story": "Its warnings came true when Judah fell in 586 BC, which gives later readers reason to trust its promises of restoration [[tbd:002:Book of Zephaniah]].",
+  "genre": "Prophetic poetry centred on the day of the Lord [[tbd:002:Book of Zephaniah]].",
+  "structure": [
+   [
+    "The day of Yahweh",
+    1,
+    1
+   ],
+   [
+    "Judgement on the nations",
+    2,
+    2
+   ],
+   [
+    "Jerusalem and the remnant’s joy",
+    3,
+    3
+   ]
+  ],
+  "debate": "Whether Scythian invasions, described by Herodotus, lie behind the book; there is no solid evidence [[tbd:002:Book of Zephaniah]].",
+  "sourced": true
+ },
+ "Haggai": {
+  "author": "Haggai, one of the Jewish settlers in Jerusalem (Ezra 5:1–2; 6:14); he repeatedly states that God spoke to him [[tbd:008:Haggai, Book of]].",
+  "date": "520 BC [[tbd:008:Haggai, Book of]].",
+  "to": "Zerubbabel the governor, Joshua the high priest and the people who had returned from exile [[tbd:008:Haggai, Book of]].",
+  "why": "To correct the settlers for neglecting God’s house and encourage them in their troubles: today’s appearances do not predict what God will do tomorrow [[tbd:008:Haggai, Book of]].",
+  "story": "Its four dated messages got the temple rebuilt [[bible:Ezra 5:1-2]]. The greater glory of this house may point to the Messiah, who was presented and taught in the temple [[tosn:Haggai 2:9]].",
+  "genre": "Four dated prophetic messages [[tbd:008:Haggai, Book of]].",
+  "structure": [
+   [
+    "Rebuild the house",
+    1,
+    1
+   ],
+   [
+    "The coming glory",
+    2,
+    2
+   ]
+  ],
+  "debate": "What the promise to Zerubbabel as God’s signet ring meant, since he soon disappears from the biblical record [[tosn:Haggai 2:21]].",
+  "sourced": true
+ },
+ "Zechariah": {
+  "author": "Zechariah son of Berechiah; his name likely means “the Lord remembers” [[tbd:026:Zechariah, Book of]]. Chapters 9–14 do not name him, and most scholars place them later in his ministry [[tosn:Zechariah 9:1–14.21]].",
+  "date": "Chapters 1–8 date from 520 to 518 BC; chapters 9–14 carry no dates [[tbd:026:Zechariah, Book of]].",
+  "to": "The returned exiles, who had not yet rebuilt the temple [[tbd:026:Zechariah, Book of]].",
+  "why": "To reassure and encourage: the temple would be rebuilt, and God’s kingdom would one day come in full. Its messages are repentance, eight night visions and the coming kingdom [[tbd:026:Zechariah, Book of]].",
+  "story": "The longest of the minor prophets [[tbd:026:Zechariah, Book of]]. The Gospel accounts of Jesus’ suffering quote Zechariah 9–14 more than any other part of the prophets, and it shaped Revelation more than any other Old Testament book [[tbd:026:Zechariah, Book of]].",
+  "genre": "Visions explained by an angel, oracles, and in chapters 9–12 apocalyptic writing [[tbd:026:Zechariah, Book of]].",
+  "structure": [
+   [
+    "Night visions and messages",
+    1,
+    8
+   ],
+   [
+    "The coming king and kingdom",
+    9,
+    14
+   ]
+  ],
+  "debate": "When chapters 9–14 were written, and how to interpret the shepherd passages; dating them is only a guess [[tbd:026:Zechariah, Book of]].",
+  "sourced": true
+ },
+ "Malachi": {
+  "author": "Malachi, a name meaning “my messenger”; since the word appears in 3:1, some think it is a title rather than a name [[tbd:013:Malachi, Book of]].",
+  "date": "Probably just after 433 BC, when Nehemiah returned to Persia; Malachi addresses the same sins as Nehemiah 13 [[tbd:013:Malachi, Book of]].",
+  "to": "The people and priests of Judah after the return from exile, who doubted God’s love and justice [[tbd:013:Malachi, Book of]].",
+  "why": "To warn Judah to stop treating God lightly and repent, before the day of the Lord announced by God’s messenger [[tbd:013:Malachi, Book of]].",
+  "story": "The last book of the Old Testament [[tbd:013:Malachi, Book of]]. John the Baptist came “in the spirit and power of Elijah” to prepare the way for Jesus [[tbd:013:Malachi, Book of]].",
+  "genre": "Sermons in the form of disputations: God states a truth, the people object, God answers [[tosn:Malachi 1:2–5]].",
+  "structure": [
+   [
+    "God’s love and careless priests",
+    1,
+    2
+   ],
+   [
+    "The messenger and the refiner",
+    3,
+    3
+   ],
+   [
+    "The coming day and Elijah",
+    4,
+    4
+   ]
+  ],
+  "debate": "Whether Malachi is a personal name or a title; an ancient tradition identified the messenger with Ezra [[tbd:013:Malachi, Book of]].",
+  "sourced": true
+ }
+}

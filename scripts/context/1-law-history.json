@@ -1,0 +1,590 @@
+{
+ "Genesis": {
+  "author": "The book never names its author [[eob:Genesis]]. Until the 1600s Jews and Christians almost unanimously named Moses, and many still hold that view [[nabre:thepentateuch/0]] [[bo:18623]]. Many modern scholars see it as woven from older traditions, given its final shape by a priestly editor during or after the exile in Babylon [[nabre:thepentateuch/0]].",
+  "date": "If Moses wrote it, in the wilderness after the Exodus: about 1445 BC on the early dating [[bo:18623]], or by 1240 BC at the latest on the later one [[eob:Genesis]]. Scholars who see several sources place its final form during or after the exile [[nabre:thepentateuch/0]].",
+  "to": "The people of Israel, to help them understand their roots in Abraham, Isaac and Jacob [[bo:18623]], and as the groundwork for the rest of the books of Moses [[eob:Genesis]].",
+  "why": "The book never states its purpose [[eob:Genesis]]. It is a selective history that lays the foundation for the whole Bible [[bo:18623]]: creation, the spread of sin, and God’s promise to bless all nations through Abraham’s family [[bible:Genesis 12:1-3]].",
+  "story": "Chapters 1–11 tell the early history of humankind, and chapters 12–50 the story of Abraham, Isaac, Jacob and Joseph [[eob:Genesis]]. God’s call of Abram begins a new history of blessing [[nabre:genesis/12]], and Paul says the promised offspring is Christ [[bible:Galatians 3:16]].",
+  "genre": "Narrative history, organised under ten headings, “these are the generations of…” (Hebrew toledot, best translated “history”) [[eob:Genesis]] [[bo:18623]].",
+  "structure": [
+   [
+    "Creation and the first humans",
+    1,
+    2
+   ],
+   [
+    "The fall and its spread",
+    3,
+    11
+   ],
+   [
+    "Abraham",
+    12,
+    25
+   ],
+   [
+    "Isaac and Jacob",
+    26,
+    36
+   ],
+   [
+    "Joseph and his brothers",
+    37,
+    50
+   ]
+  ],
+  "debate": "How Genesis was written: the theory of J, E, D and P sources, and its critics [[eob:Genesis]] [[nabre:thepentateuch/0]]; and how its creation and flood accounts compare with other ancient Near Eastern stories, such as the Gilgamesh and Atrahasis epics [[nabre:genesis/6]] [[eob:Genesis]].",
+  "structureNote": "The book falls into two halves, the early history (1–11) and the story of the patriarchs (12–50) [[eob:Genesis]]; the outline below follows the main characters of the text.",
+  "sourced": true
+ },
+ "Exodus": {
+  "author": "The book does not name its author [[eob:Book-Exodus]]. Very early Jewish tradition held that Moses wrote all of it, and many still hold that view [[eob:Book-Exodus]] [[nabre:thepentateuch/0]]. Many modern scholars see it as woven from older traditions; the worship chapters (25–31, 35–40) belong to the Priestly material [[nabre:thepentateuch/0]].",
+  "date": "The events: about 1446 BC on the early dating, or about 1260 BC on the late dating, which links the city of Raamses (1:11) with Pharaoh Rameses II; both are held by evangelical scholars [[ref:esv-exodus-date]]. The evidence is not enough for a final decision, but points to the second half of the second millennium BC [[eob:Book-Exodus]].",
+  "to": "The people of Israel, as the story of how God made them his own nation [[nabre:exodus/0]].",
+  "why": "It tells how God freed Israel from Egypt, bound them to himself in the covenant at Sinai, and came to dwell among them [[nabre:exodus/0]]. Its great themes are redemption, covenant, law and worship [[eob:Book-Exodus]].",
+  "story": "The name Exodus is Greek for “departure”; in Hebrew the book is called Shemoth, “Names”, from its opening words [[nabre:exodus/0]]. The rescue from Egypt is remembered every year at Passover [[bible:Exodus 12:14]], and the New Testament calls Christ “our Passover” [[bible:1 Corinthians 5:7]].",
+  "genre": "About half narrative, the first nineteen chapters, and about half law and instructions for worship [[eob:Book-Exodus]].",
+  "structure": [
+   [
+    "Oppression in Egypt",
+    1,
+    2
+   ],
+   [
+    "The call of Moses",
+    2,
+    7
+   ],
+   [
+    "The contest with Pharaoh",
+    7,
+    13
+   ],
+   [
+    "Deliverance at the sea",
+    13,
+    15
+   ],
+   [
+    "Through the wilderness to Sinai",
+    15,
+    18
+   ],
+   [
+    "Covenant and law at Sinai",
+    19,
+    31
+   ],
+   [
+    "The golden calf and renewal",
+    32,
+    34
+   ],
+   [
+    "The tabernacle built and filled",
+    35,
+    40
+   ]
+  ],
+  "debate": "The date of the Exodus [[ref:esv-exodus-date]]; why no Egyptian king is named and why Egyptian monuments are silent, which is expected since defeats were not recorded [[eob:Book-Exodus]]; how its laws compare with Hammurabi’s code, with which direct parallels are fairly few [[eob:Book-Exodus]]; and how the book was composed from sources [[nabre:thepentateuch/0]].",
+  "structureNote": "The NABRE divides the book into eight parts [[nabre:exodus/0]]; the outline below follows them.",
+  "sourced": true
+ },
+ "Leviticus": {
+  "author": "The book does not name its author [[eob:Leviticus]]. It presents its laws as given by God through Moses [[bible:Leviticus 26:46]], and some scholars defend that view [[eob:Leviticus]]. Many see it as part of the Priestly tradition (P), with signs of development within it [[nabre:leviticus/0]] [[eob:Leviticus]].",
+  "date": "On the traditional view, the time at Sinai [[eob:Leviticus]]. Critical scholars date the Priestly material later, in its final form no later than about 550 BC on one view, or in the 400s BC on another [[eob:Leviticus]].",
+  "to": "The people of Israel and their priests. Its laws are meant to shape the whole way of life of those who hear them [[nabre:leviticus/0]].",
+  "why": "It sets out how the holy God can live among an unholy people [[eob:Leviticus]]: sacrifices, purity and holiness, the priesthood, the sanctuary and the feasts [[nabre:leviticus/0]].",
+  "story": "It carries on the story of Exodus and stands at the centre of the five books of Moses [[nabre:leviticus/0]]. Its Hebrew name is its first word, “And he called” [[eob:Leviticus]]. Hebrews reads its priests and sacrifices as a shadow of Christ’s work [[eob:Leviticus]] [[bible:Hebrews 10:1]].",
+  "genre": "Laws for worship and daily life, with a few short narratives [[nabre:leviticus/0]].",
+  "structure": [
+   [
+    "Rules for sacrifices",
+    1,
+    7
+   ],
+   [
+    "The ordination of priests",
+    8,
+    10
+   ],
+   [
+    "Laws of ritual purity",
+    11,
+    16
+   ],
+   [
+    "The Holiness laws",
+    17,
+    26
+   ],
+   [
+    "Redeeming offerings",
+    27,
+    27
+   ]
+  ],
+  "debate": "How and when the book was composed from sources [[eob:Leviticus]]; what the verb kipper, “atone”, means: to wipe away, to cover, or to pay a ransom [[eob:Leviticus]]; and whether the Holiness laws came before or after Ezekiel, which cannot be shown with certainty [[eob:Leviticus]].",
+  "structureNote": "The outline follows the five parts of the NABRE introduction [[nabre:leviticus/0]].",
+  "sourced": true
+ },
+ "Numbers": {
+  "author": "Like the other books of the Pentateuch, it has traditionally been credited to Moses [[easton:Numbers-Book]]; it says Moses wrote down the list of Israel’s journeys [[bible:Numbers 33:2]]. Many modern scholars see it, like the rest of the Pentateuch, as woven from several traditions [[nabre:thepentateuch/0]].",
+  "date": "The events cover about thirty-eight years, from the second year after the Exodus to the fortieth [[easton:Numbers-Book]] [[nabre:numbers/0]]. Scholars who see several sources place the Pentateuch’s final form during or after the exile [[nabre:thepentateuch/0]].",
+  "to": "The people of Israel, who were about to enter the land God had promised [[nabre:numbers/0]].",
+  "why": "It follows two generations: the one that refused to trust God and died in the wilderness, and the new one being prepared to enter the land [[nabre:numbers/0]]. Its laws are set within the story [[nabre:numbers/0]].",
+  "story": "It continues the journey begun in Exodus [[nabre:numbers/0]]. The New Testament recalls its bronze serpent, Korah’s rebellion, Balaam’s prophecies and the water from the rock [[nabre:numbers/0]] [[bible:John 3:14-15]] [[bible:1 Corinthians 10:4]], and Hebrews uses the wilderness generation as a warning against unbelief [[bible:Hebrews 3:17-19]].",
+  "genre": "Law and history together, with two censuses, travel lists and the poetic oracles of Balaam [[nabre:numbers/0]].",
+  "structure": [
+   [
+    "Census and preparation at Sinai",
+    1,
+    10
+   ],
+   [
+    "Rebellion and forty years in the wilderness",
+    10,
+    25
+   ],
+   [
+    "A new generation prepares to enter the land",
+    25,
+    36
+   ]
+  ],
+  "debate": "How the book was composed [[nabre:thepentateuch/0]]; the route through the wilderness, since the list of stages is not complete and many places are not known [[nabre:numbers/33]]; and what exactly Moses’s sin at Meribah was, which the text does not make clear [[nabre:numbers/20]].",
+  "structureNote": "The NABRE divides the book into three parts [[nabre:numbers/0]]; the outline below follows them.",
+  "sourced": true
+ },
+ "Deuteronomy": {
+  "author": "It is presented as three speeches of Moses [[nabre:deuteronomy/0]]. Those who hold that Moses wrote it point to its likeness to Hittite treaties of the second millennium BC [[tbd:004:Deuteronomy, Book of]]; an editor completed it after his death [[bo:885]]. Others hold that it was written by an unknown author in the 600s BC, in King Josiah’s time [[tbd:004:Deuteronomy, Book of]].",
+  "date": "If by Moses, the 1300s or 1200s BC [[tbd:004:Deuteronomy, Book of]], or about 1406 BC on the early dating of the Exodus [[bo:885]]. The NABRE judges it was probably composed over three centuries, from the 700s BC to after the exile [[nabre:deuteronomy/0]].",
+  "to": "The new generation of Israel on the plains of Moab, about to enter the promised land [[nabre:deuteronomy/1]] [[tosn:Deuteronomy 4:13]].",
+  "why": "To call Israel to choose between loving the LORD and keeping his commands, which brings blessing, or serving other gods, which brings curse [[nabre:deuteronomy/0]]: so that the nation might live and possess the land [[bo:885]].",
+  "story": "Its language and ideas shape the books from Joshua to Kings [[nabre:deuteronomy/0]]. More than 80 Old Testament quotations in the New Testament come from it, and Jesus quoted it when tempted and when naming the greatest commandment [[tbd:004:Deuteronomy, Book of]].",
+  "genre": "Speeches of Moses that follow the pattern of an ancient covenant treaty, with laws, blessings and curses [[tbd:004:Deuteronomy, Book of]] [[tosn:Deuteronomy 1:1]].",
+  "structure": [
+   [
+    "First address: looking back",
+    1,
+    4
+   ],
+   [
+    "Second address: the covenant",
+    4,
+    11
+   ],
+   [
+    "Second address: the laws",
+    12,
+    28
+   ],
+   [
+    "Third address: covenant renewal and farewell",
+    29,
+    33
+   ],
+   [
+    "The death of Moses",
+    34,
+    34
+   ]
+  ],
+  "debate": "Whether Moses wrote it or it was written in Josiah’s time [[tbd:004:Deuteronomy, Book of]]; its relation to the book of the law found in the temple in 622 BC [[nabre:deuteronomy/0]]; and how closely it follows Hittite treaty forms [[tbd:004:Deuteronomy, Book of]]. Its Greek name, “second law”, can mislead, since it is not a simple repeat of the law [[tbd:004:Deuteronomy, Book of]].",
+  "structureNote": "The NABRE divides the book into three addresses of Moses and the account of his death [[nabre:deuteronomy/0]]; the outline below follows them.",
+  "sourced": true
+ },
+ "Joshua": {
+  "author": "The book does not say. The Talmud names Joshua, perhaps because he “wrote these words” of the covenant renewal (24:26) [[tbd:010:Joshua, Book of]] [[bible:Joshua 24:26]]. The NABRE treats it as part of the Deuteronomistic History, written for Israel late in the time of the kings [[nabre:joshua/0]].",
+  "date": "There are no clear markers, and scholars do not agree [[tbd:010:Joshua, Book of]]. A conservative view dates the writing between 1375 and 1045 BC; critical scholars suggest the 600s BC or the exile [[tbd:010:Joshua, Book of]].",
+  "to": "Israel, to show how the LORD gave them the land and how they might prosper in it [[tbd:010:Joshua, Book of]], and to warn them against losing it [[nabre:joshua/0]].",
+  "why": "To show Joshua following in Moses’s footsteps, the LORD giving the land, and the conditions for keeping it: trusting the LORD and staying united and faithful [[tbd:010:Joshua, Book of]] [[nabre:joshua/0]].",
+  "story": "God’s promise of the land is kept: “Nothing failed of any good thing which Yahweh had spoken” [[bible:Joshua 21:45]]. Joshua’s name means “the LORD saves”, the same name as Jesus [[nabre:numbers/13]].",
+  "genre": "History, the first of the books the Hebrew Bible calls the Former Prophets [[tbd:010:Joshua, Book of]], with lists of tribal lands that preserve older traditions [[nabre:joshua/0]].",
+  "structure": [
+   [
+    "Entering the land",
+    1,
+    5
+   ],
+   [
+    "The conquest",
+    6,
+    12
+   ],
+   [
+    "Dividing the land",
+    13,
+    21
+   ],
+   [
+    "Farewells and covenant",
+    22,
+    24
+   ]
+  ],
+  "debate": "When and by whom it was written [[tbd:010:Joshua, Book of]]; how its swift conquest fits Judges 1, which suggests a slow and piecemeal settlement [[nabre:joshua/0]]; and how to read the total destruction it describes, which the NABRE calls an idealisation, set against the New Testament command to love enemies [[nabre:joshua/0]].",
+  "structureNote": "The NABRE divides the book into three parts [[nabre:joshua/0]]; the outline below follows them, with the conquest in two halves.",
+  "sourced": true
+ },
+ "Judges": {
+  "author": "Unknown. It was almost certainly not Samuel, as later tradition suggested; a later writer probably compiled it from older written sources [[tbd:010:Judges, Book of]].",
+  "date": "The final editing reflects the early days of Israel’s kings [[tbd:010:Judges, Book of]]. The period itself began about 1370–1360 BC on the early dating of the Exodus, or near the end of the 1200s BC on the later one [[tbd:010:Judges, Book of]].",
+  "to": "Israel under its first kings, explaining why the tribes did not take all the land and pointing toward a king who would shepherd the people [[tbd:010:Judges, Book of]].",
+  "why": "It shows an age that repeated itself without progress, defends God’s justice and patience when Israel kept disobeying, and supports the idea of a shepherd king [[tbd:010:Judges, Book of]].",
+  "story": "A new generation falls into a cycle of rebellion and partial rescue [[tosn:Judges 2:10-19]]. It ends: “In those days there was no king in Israel. Everyone did that which was right in his own eyes” [[bible:Judges 21:25]], looking toward God’s covenant with David [[tosn:Judges 21:25]].",
+  "genre": "Hero stories of twelve judges from different regions, framed by an introduction and two closing stories [[tbd:010:Judges, Book of]] [[tosn:Judges 17:1-21:25]].",
+  "structure": [
+   [
+    "Unfinished conquest",
+    1,
+    2
+   ],
+   [
+    "The judges",
+    3,
+    16
+   ],
+   [
+    "Everyone did what was right in his own eyes",
+    17,
+    21
+   ]
+  ],
+  "debate": "How long the period of the judges lasted, which depends on the date of the Exodus [[tbd:010:Judges, Book of]]; and whether the book argues for David’s rule rather than Saul’s, as some scholars think [[tbd:010:Judges, Book of]].",
+  "structureNote": "The outline follows the book’s introduction, the stories of the judges and its two closing stories [[tbd:010:Judges, Book of]].",
+  "sourced": true
+ },
+ "Ruth": {
+  "author": "Unknown [[tbd:018:Ruth, Book of]]. Since it closes with David’s family line, it was probably written after David began to reign, perhaps by someone close to him such as Samuel, Nathan or Abiathar [[tbd:018:Ruth, Book of]].",
+  "date": "The events took place around 1100 BC, in the days of the judges [[tosn:Ruth 1:1]]. It was likely written after David became king [[tbd:018:Ruth, Book of]].",
+  "to": "Israel, perhaps to show that David’s family was the chosen royal line, and to explain how a faithful Moabite woman became part of Israel [[tbd:018:Ruth, Book of]].",
+  "why": "It shows God’s kindness reaching even those not born Israelites, and Ruth’s love for Naomi as a model of devotion [[tbd:018:Ruth, Book of]].",
+  "story": "Ruth becomes King David’s great-grandmother [[tbd:018:Ruth, Book of]] [[bible:Ruth 4:17]], and she appears in Jesus’s family tree [[bible:Matthew 1:5]].",
+  "genre": "A short story that ends with a family line of ten generations, from Perez to David [[tosn:Ruth 4:18-22]].",
+  "structure": [
+   [
+    "Emptiness in Moab",
+    1,
+    1
+   ],
+   [
+    "Gleaning in Boaz’s field",
+    2,
+    2
+   ],
+   [
+    "At the threshing floor",
+    3,
+    3
+   ],
+   [
+    "Redemption and a son",
+    4,
+    4
+   ]
+  ],
+  "debate": "When it was written, which affects what its purpose was [[tbd:018:Ruth, Book of]].",
+  "sourced": true
+ },
+ "1 Samuel": {
+  "author": "Unknown. It cannot have been Samuel alone, since his death is reported in 25:1 [[tbd:019:Samuel, Books of First and Second]]. Some suggest Samuel with the prophets Nathan and Gad (1 Chronicles 29:29), but the real author cannot be determined [[tbd:019:Samuel, Books of First and Second]].",
+  "date": "Its final form comes some time after Solomon’s death and the division of the kingdom in 930 BC [[tbd:019:Samuel, Books of First and Second]].",
+  "to": "Israel, about what kind of king fits God’s covenant [[tbd:019:Samuel, Books of First and Second]].",
+  "why": "Israel moves from judges to kings. Kingship as the people demanded it denied the covenant, Saul’s reign failed it, and David’s, though imperfect, truly reflected it [[tbd:019:Samuel, Books of First and Second]].",
+  "story": "Hannah’s song looks ahead to kingship in Israel and ultimately to Christ [[tbd:019:Samuel, Books of First and Second]]. God looks at the heart, not appearances [[bible:1 Samuel 16:7]].",
+  "genre": "Historical narrative with poetry, such as Hannah’s song (2:1–10) [[tbd:019:Samuel, Books of First and Second]]. 1 and 2 Samuel were one book until the Greek translators split them in two [[tbd:019:Samuel, Books of First and Second]].",
+  "structure": [
+   [
+    "Samuel",
+    1,
+    7
+   ],
+   [
+    "Saul made king",
+    8,
+    15
+   ],
+   [
+    "David and Saul",
+    16,
+    31
+   ]
+  ],
+  "debate": "Who wrote it, and how its mixed feelings about kingship fit together; the book resolves them in chapter 12 [[tbd:019:Samuel, Books of First and Second]].",
+  "sourced": true
+ },
+ "2 Samuel": {
+  "author": "Unknown. 1 and 2 Samuel were originally one book, and its real author cannot be determined [[tbd:019:Samuel, Books of First and Second]].",
+  "date": "David ruled the strongest kingdom of the region about 1000 BC [[tbd:004:David]]. The book reached its final form some time after the kingdom split in 930 BC [[tbd:019:Samuel, Books of First and Second]].",
+  "to": "Israel, about David’s reign and what kind of king fits God’s covenant [[tbd:019:Samuel, Books of First and Second]].",
+  "why": "David becomes king of all Israel, makes Jerusalem its centre, and receives God’s promise of a lasting dynasty [[tbd:019:Samuel, Books of First and Second]]; then his sin with Bathsheba brings trouble on his family [[bsn:2 Samuel 11:1–14:33]].",
+  "story": "God promises David a house that will last forever [[bible:2 Samuel 7:16]], a promise fulfilled in the eternal reign of Jesus Christ [[tosn:2 Samuel 7:19]].",
+  "genre": "Historical narrative with poetry, such as David’s laments and his song in chapter 22 [[tbd:019:Samuel, Books of First and Second]]. Chapters 21–24 are arranged by topic, not by time [[tosn:2 Samuel 21:1–24:25]].",
+  "structure": [
+   [
+    "David becomes king",
+    1,
+    5
+   ],
+   [
+    "The ark and the covenant",
+    6,
+    10
+   ],
+   [
+    "Bathsheba and its consequences",
+    11,
+    20
+   ],
+   [
+    "Appendices",
+    21,
+    24
+   ]
+  ],
+  "debate": "Who wrote it and when it took its final form [[tbd:019:Samuel, Books of First and Second]].",
+  "sourced": true
+ },
+ "1 Kings": {
+  "author": "Unknown; the book is anonymous [[tbd:011:Kings, Books of First and Second]]. Jewish tradition in the Talmud names Jeremiah, and an origin among the prophets fits the evidence well [[tbd:011:Kings, Books of First and Second]]. It draws on official royal annals, “the chronicles of the kings” [[tbd:011:Kings, Books of First and Second]].",
+  "date": "The events run from Solomon’s accession to the divided kingdoms [[tbd:011:Kings, Books of First and Second]]; Solomon’s fourth year was about 967 BC [[tosn:1 Kings 6:1]] and the kingdom split under Rehoboam in 931 BC [[tosn:1 Kings 12:1]]. 1 and 2 Kings were completed in exile, likely between 561 and 539 BC [[tbd:011:Kings, Books of First and Second]].",
+  "to": "The exiles, who were asking how and why Jerusalem and the temple could fall [[tbd:011:Kings, Books of First and Second]].",
+  "why": "Solomon’s glory and temple, the split into Israel and Judah, and Elijah’s stand against Baal. The writer weighs this history by the standard of Deuteronomy [[tbd:011:Kings, Books of First and Second]].",
+  "story": "Each king is judged by faithfulness to God, not by political success [[tbd:011:Kings, Books of First and Second]], and the book keeps showing words spoken by the prophets coming true [[tbd:011:Kings, Books of First and Second]].",
+  "genre": "History written for theological reasons, not a modern history textbook [[tbd:011:Kings, Books of First and Second]].",
+  "structure": [
+   [
+    "Solomon",
+    1,
+    11
+   ],
+   [
+    "The kingdom divides",
+    12,
+    16
+   ],
+   [
+    "Elijah",
+    17,
+    22
+   ]
+  ],
+  "debate": "Who compiled it, and how the dates given for the kings of Israel and Judah fit together into one timeline [[tbd:011:Kings, Books of First and Second]].",
+  "sourced": true
+ },
+ "2 Kings": {
+  "author": "Unknown; 1 and 2 Kings are anonymous [[tbd:011:Kings, Books of First and Second]]. Jewish tradition names Jeremiah, and an origin among the prophets fits the evidence well [[tbd:011:Kings, Books of First and Second]].",
+  "date": "It covers the divided kingdoms, the fall of Samaria in 722 BC [[tosn:2 Kings 17:5–6]], Jerusalem’s fall in 586 BC, and Jehoiachin’s release about 561 BC [[tbd:011:Kings, Books of First and Second]]. Written in exile, likely between 561 and 539 BC [[tbd:011:Kings, Books of First and Second]].",
+  "to": "The exiles, asking how and why the temple and David’s throne had fallen [[tbd:011:Kings, Books of First and Second]].",
+  "why": "Elisha’s miracles, the fall of Israel to Assyria and of Judah to Babylon, with a few faithful kings along the way. The writer measures the history by Deuteronomy [[tbd:011:Kings, Books of First and Second]].",
+  "story": "The exile is explained as the result of turning from God [[bible:2 Kings 17:7]]. It ends with Jehoiachin released, a hint that God would bring his people home [[tosn:2 Kings 25:27–30]].",
+  "genre": "History written for theological reasons, drawing on royal annals [[tbd:011:Kings, Books of First and Second]].",
+  "structure": [
+   [
+    "Elisha",
+    1,
+    8
+   ],
+   [
+    "The northern kingdom falls",
+    9,
+    17
+   ],
+   [
+    "Hezekiah to Josiah",
+    18,
+    23
+   ],
+   [
+    "Judah falls",
+    24,
+    25
+   ]
+  ],
+  "debate": "How the reigns of the kings fit into one timeline, and how the book compares with Assyrian and Babylonian records [[tosn:2 Kings 17:5–6]] [[tbd:011:Kings, Books of First and Second]].",
+  "sourced": true
+ },
+ "1 Chronicles": {
+  "author": "Unknown, usually called “the Chronicler” [[tbd:003:Chronicles, Books of First and Second]]. The Talmud says Ezra wrote it, and many scholars agree, but there is no general agreement [[tbd:003:Chronicles, Books of First and Second]].",
+  "date": "Probably around 400 BC, in the Persian period [[tbd:003:Chronicles, Books of First and Second]].",
+  "to": "Jews living in Jerusalem under Persian rule after the exile [[tbd:003:Chronicles, Books of First and Second]].",
+  "why": "With David’s kingdom gone politically, the Chronicler finds the key to history in God’s covenant with David, and gives temple worship great weight [[tbd:003:Chronicles, Books of First and Second]].",
+  "story": "It retells Israel’s story from Adam to David. Chronicles tells of times David was faithful and leaves some of his failures to 2 Samuel [[bsn:1 Chronicles 9:35–20:8]].",
+  "genre": "Genealogies (chapters 1–9) and the reign of David (chapters 10–29) [[tbd:003:Chronicles, Books of First and Second]].",
+  "structure": [
+   [
+    "Genealogies from Adam",
+    1,
+    9
+   ],
+   [
+    "David’s reign",
+    10,
+    21
+   ],
+   [
+    "David prepares for the temple",
+    22,
+    29
+   ]
+  ],
+  "debate": "Who wrote it and when, and whether the same author wrote Ezra and Nehemiah [[tbd:003:Chronicles, Books of First and Second]].",
+  "sourced": true
+ },
+ "2 Chronicles": {
+  "author": "Unknown, usually called “the Chronicler”; the Talmud names Ezra, but there is no general agreement [[tbd:003:Chronicles, Books of First and Second]].",
+  "date": "Probably around 400 BC, in the Persian period [[tbd:003:Chronicles, Books of First and Second]].",
+  "to": "Jews in Jerusalem under Persian rule, for whom temple worship mattered greatly [[tbd:003:Chronicles, Books of First and Second]].",
+  "why": "Solomon’s reign, the kings of Judah, and an epilogue on the exile and return [[tbd:003:Chronicles, Books of First and Second]].",
+  "story": "It ends with Cyrus inviting God’s people to go up to Jerusalem [[bible:2 Chronicles 36:23]]. Chronicles stands at the very end of the Hebrew Bible [[tbd:003:Chronicles, Books of First and Second]].",
+  "genre": "History drawing on earlier records, retelling Samuel and Kings with its own concerns [[tbd:003:Chronicles, Books of First and Second]].",
+  "structure": [
+   [
+    "Solomon and the temple",
+    1,
+    9
+   ],
+   [
+    "The kings of Judah",
+    10,
+    28
+   ],
+   [
+    "Hezekiah and Josiah’s reforms",
+    29,
+    35
+   ],
+   [
+    "Exile and return",
+    36,
+    36
+   ]
+  ],
+  "debate": "Who wrote it and when, and whether its author also wrote Ezra and Nehemiah [[tbd:003:Chronicles, Books of First and Second]].",
+  "sourced": true
+ },
+ "Ezra": {
+  "author": "Many believe Ezra himself collected and wrote the material; parts are told in his own words [[tbd:002:Book of Ezra]].",
+  "date": "The events run from Cyrus’s decree after he took Babylon in 539 BC to Ezra’s work under Artaxerxes I (465–424 BC) [[tbd:002:Book of Ezra]]. Ezra came about 13 years before Nehemiah, who arrived in 445 BC [[tbd:002:Book of Ezra]].",
+  "to": "The Jews who returned from exile under Persian rule [[tbd:002:Book of Ezra]].",
+  "why": "Exiles return from Babylon, rebuild the temple [[bible:Ezra 6:15]], and Ezra the scribe teaches God’s law [[bible:Ezra 7:10]].",
+  "story": "God moved a king who did not know him, Cyrus of Persia, to let his people go home [[tosn:Ezra 1:1]].",
+  "genre": "History with official letters written in Aramaic and a first-person account by Ezra [[tbd:002:Book of Ezra]].",
+  "structure": [
+   [
+    "The first return and the temple",
+    1,
+    6
+   ],
+   [
+    "Ezra’s return and reforms",
+    7,
+    10
+   ]
+  ],
+  "debate": "Whether Ezra came before Nehemiah [[tbd:002:Book of Nehemiah]], and how to understand the divorces of chapter 10, for which the law gave no clear instructions [[tosn:Ezra 10:4]].",
+  "sourced": true
+ },
+ "Nehemiah": {
+  "author": "Nehemiah tells much of it in his own words [[bible:Nehemiah 1:1]]. Ezra and Nehemiah formed one book in the early Hebrew Bible [[tbd:002:Book of Nehemiah]].",
+  "date": "Nehemiah came to Jerusalem in 445 BC, under Artaxerxes I [[tbd:002:Book of Nehemiah]].",
+  "to": "The Jews who had returned to Judah under Persian rule [[tbd:002:Book of Nehemiah]].",
+  "why": "Nehemiah, the Persian king’s cupbearer, rebuilds Jerusalem’s walls and leads the people to renew their covenant with God [[bible:Nehemiah 1:11]] [[bible:Nehemiah 10:29]].",
+  "story": "One of the last of the Jewish historical books [[tbd:002:Book of Nehemiah]].",
+  "genre": "First-person memoir with lists and a covenant ceremony [[bible:Nehemiah 7:5]] [[bible:Nehemiah 9:38]].",
+  "structure": [
+   [
+    "Rebuilding the walls",
+    1,
+    7
+   ],
+   [
+    "Reading the law and renewal",
+    8,
+    10
+   ],
+   [
+    "Repopulating and dedicating",
+    11,
+    12
+   ],
+   [
+    "Final reforms",
+    13,
+    13
+   ]
+  ],
+  "debate": "The exact order of Ezra’s and Nehemiah’s work; the book’s message is clear either way [[tbd:002:Book of Nehemiah]].",
+  "sourced": true
+ },
+ "Esther": {
+  "author": "Unknown. Esther 9:20 says Mordecai “wrote these things”, which may mean he wrote part or all of it [[tbd:002:Book of Esther]].",
+  "date": "Set under Xerxes, who died in 465 BC [[tbd:002:Book of Esther]]. When it was written is uncertain: some say shortly after 465 BC, others much later [[tbd:002:Book of Esther]].",
+  "to": "Jews living in the Persian empire, and to explain the feast of Purim [[bible:Esther 9:26-28]].",
+  "why": "A Jewish queen of Persia risks her life to save her people from a plot to destroy them [[bible:Esther 4:16]].",
+  "story": "God’s name never appears, perhaps because the book was meant for the official Persian court record [[tbd:002:Book of Esther]]; yet the reversals show God’s guiding hand [[tosn:Esther 7:9]].",
+  "genre": "A court story written by someone who knew Persian court life well [[tbd:002:Book of Esther]].",
+  "structure": [
+   [
+    "Esther becomes queen",
+    1,
+    2
+   ],
+   [
+    "Haman’s plot",
+    3,
+    4
+   ],
+   [
+    "Esther’s banquets",
+    5,
+    7
+   ],
+   [
+    "The reversal and Purim",
+    8,
+    10
+   ]
+  ],
+  "debate": "When and why it was written, and the extra passages in the Greek version [[tbd:002:Book of Esther]] [[tbd:005:Esther, Additions to]].",
+  "sourced": true
+ },
+ "Psalms": {
+  "author": "Many writers. The Hebrew titles credit David with 73 psalms, Asaph with 12 and the sons of Korah with 11, Solomon with two, and Moses and Ethan with one each [[tbd:016:Psalms, Book of]]. The titles were added early and are a reasonably reliable guide [[tbd:016:Psalms, Book of]].",
+  "date": "From David’s time, around 1000 BC [[tbd:004:David]], to after the exile [[tosn:Psalm 126:1–6]]. The collection was complete before the Greek translation at the end of the 200s BC [[tbd:016:Psalms, Book of]].",
+  "to": "God’s people at worship, in every situation of life [[tbd:016:Psalms, Book of]].",
+  "why": "Every emotion, from bitter complaint to joyful praise, brought into communion with God [[tbd:016:Psalms, Book of]].",
+  "story": "The apostles use the Psalms to describe the life and work of Jesus the Messiah [[tosn:Psalm 1:1–6]]; most royal psalms are also messianic [[tbd:016:Psalms, Book of]].",
+  "genre": "Poetry in five books (1–41, 42–72, 73–89, 90–106, 107–150), perhaps echoing the five books of Moses, each of the first four ending with a doxology [[tbd:016:Psalms, Book of]].",
+  "structure": [
+   [
+    "Book I",
+    1,
+    41
+   ],
+   [
+    "Book II",
+    42,
+    72
+   ],
+   [
+    "Book III",
+    73,
+    89
+   ],
+   [
+    "Book IV",
+    90,
+    106
+   ],
+   [
+    "Book V",
+    107,
+    150
+   ]
+  ],
+  "debate": "What the titles mean: “of David” usually means by David, but with groups it may mean from their collection [[tbd:016:Psalms, Book of]].",
+  "sourced": true
+ }
+}

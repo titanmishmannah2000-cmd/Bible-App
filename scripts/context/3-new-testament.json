@@ -1,0 +1,272 @@
+{
+"Matthew": {
+ "author": "Traditionally Matthew (Levi), the tax collector who became an apostle; the Gospel itself is anonymous.",
+ "date": "Most scholars: AD 70–90. Some: the 50s or 60s.",
+ "to": "Jewish Christians, showing Jesus as the promised Messiah.",
+ "why": "The life and teaching of Jesus, showing that he fulfils the Old Testament and teaches with God’s authority.",
+ "story": "The first book of the New Testament and the bridge from the Old. It opens with Jesus’s family tree back to Abraham and ends with the command to make disciples of all nations.",
+ "genre": "Ancient biography (a Gospel), built around five great blocks of teaching.",
+ "structure": [["Birth and preparation", 1, 4], ["The Sermon on the Mount", 5, 7], ["Miracles and mission", 8, 10], ["Growing opposition and parables", 11, 13], ["Toward the cross", 14, 20], ["Jerusalem and the last teachings", 21, 25], ["Death and resurrection", 26, 28]],
+ "debate": "Its relationship to Mark and Luke (the “Synoptic problem”), and early reports that Matthew first wrote in Hebrew or Aramaic."
+},
+"Mark": {
+ "author": "Traditionally John Mark, recording Peter’s preaching; the Gospel is anonymous.",
+ "date": "Most scholars: about AD 65–70, the earliest Gospel.",
+ "to": "Probably Christians in Rome facing persecution.",
+ "why": "A fast-moving account of Jesus’s actions and his road to the cross, asking: who is this man?",
+ "story": "Probably the first Gospel written; Matthew and Luke seem to have used it.",
+ "genre": "Ancient biography; vivid, urgent, full of the word “immediately”.",
+ "structure": [["Beginnings in Galilee", 1, 3], ["Parables and power", 4, 8], ["The way to the cross", 9, 10], ["Jerusalem", 11, 13], ["Death and the empty tomb", 14, 16]],
+ "debate": "Why the earliest manuscripts end at 16:8, and the “messianic secret”: why Jesus tells people to keep quiet."
+},
+"Luke": {
+ "author": "Luke, a doctor and companion of Paul; he also wrote Acts.",
+ "date": "Most scholars: AD 75–90. Some: early 60s.",
+ "to": "Theophilus, and a wider Gentile audience.",
+ "why": "An orderly account of Jesus’s life, with special care for the poor, women, outsiders and prayer.",
+ "story": "The first half of a two-volume work; Acts continues the story from Jerusalem to Rome.",
+ "genre": "Ancient biography written with a historian’s preface.",
+ "structure": [["Birth and childhood", 1, 2], ["Preparation", 3, 4], ["Ministry in Galilee", 5, 9], ["The journey to Jerusalem", 10, 19], ["Jerusalem, death and resurrection", 20, 24]],
+ "debate": "Its sources, and how its census under Quirinius fits Roman records."
+},
+"John": {
+ "author": "Traditionally John the apostle, “the disciple whom Jesus loved”.",
+ "date": "About AD 90–100.",
+ "to": "Believers and seekers: “that you may believe that Jesus is the Christ.”",
+ "why": "Seven signs and long conversations reveal Jesus as the Word made flesh, the Son sent from the Father.",
+ "story": "The most reflective Gospel, with the “I am” sayings and the deepest teaching on the Father, Son and Spirit.",
+ "genre": "Ancient biography arranged around signs and discourses.",
+ "structure": [["Prologue", 1, 1], ["The book of signs", 2, 12], ["The last evening with the disciples", 13, 17], ["Death and resurrection", 18, 20], ["Epilogue by the lake", 21, 21]],
+ "debate": "Who the beloved disciple is, how John relates to the other three Gospels, and the story of the woman caught in adultery (7:53–8:11), missing from the oldest copies."
+},
+"Acts": {
+ "author": "Luke.",
+ "date": "About AD 62–90.",
+ "to": "Theophilus.",
+ "why": "The risen Jesus sends the Spirit, and his followers carry the good news from Jerusalem to Judea, Samaria and Rome.",
+ "story": "The story of the first church, the bridge between the Gospels and the letters. Paul’s journeys give the setting for many of his letters.",
+ "genre": "Ancient history with speeches and travel narratives (some in the first person: “we”).",
+ "structure": [["Jerusalem", 1, 7], ["Judea and Samaria", 8, 12], ["Paul’s first journey and the council", 13, 15], ["Second and third journeys", 16, 21], ["Paul’s trials and voyage to Rome", 22, 28]],
+ "debate": "How its picture of Paul fits Paul’s letters, and whether its speeches are summaries or Luke’s compositions."
+},
+"Romans": {
+ "author": "Paul.",
+ "date": "About AD 57, from Corinth.",
+ "to": "The church in Rome, Jews and Gentiles, which Paul had not yet visited.",
+ "why": "Paul’s fullest explanation of the good news: all have sinned, and God makes people right with himself as a gift through faith in Christ.",
+ "story": "The most influential letter in church history, central to Augustine, Luther and Wesley.",
+ "genre": "A letter with a long theological argument.",
+ "structure": [["All have sinned", 1, 3], ["Justified by faith", 4, 5], ["New life in Christ and the Spirit", 6, 8], ["God and Israel", 9, 11], ["Living sacrifices", 12, 15], ["Greetings", 16, 16]],
+ "debate": "What Paul means by “the righteousness of God” and “works of the law” (the “New Perspective on Paul” debate)."
+},
+"1 Corinthians": {
+ "author": "Paul.",
+ "date": "About AD 54, from Ephesus.",
+ "to": "The church in Corinth, a busy and divided Greek port city.",
+ "why": "Paul answers questions and problems: divisions, sexual ethics, food offered to idols, worship, spiritual gifts and the resurrection.",
+ "story": "Contains the great chapter on love (13) and the earliest written account of the resurrection appearances (15).",
+ "genre": "A pastoral letter answering a letter from the church.",
+ "structure": [["Divisions and the wisdom of the cross", 1, 4], ["Moral problems", 5, 6], ["Marriage and freedom", 7, 10], ["Worship and spiritual gifts", 11, 14], ["The resurrection", 15, 15], ["Plans and greetings", 16, 16]],
+ "debate": "Head coverings and women speaking in church (11 and 14), and what “speaking in tongues” was."
+},
+"2 Corinthians": {
+ "author": "Paul.",
+ "date": "About AD 55–56.",
+ "to": "The church in Corinth after painful conflict.",
+ "why": "Paul’s most personal letter: strength in weakness, the ministry of reconciliation, generosity, and a defence against rivals.",
+ "story": "It shows the cost of ministry and the treasure “in clay vessels”.",
+ "genre": "Letter, perhaps combining several letters.",
+ "structure": [["Comfort and Paul’s ministry", 1, 7], ["The collection for Jerusalem", 8, 9], ["Paul defends his apostleship", 10, 13]],
+ "debate": "Whether chapters 10–13 were a separate letter, and the identity of the “super-apostles”."
+},
+"Galatians": {
+ "author": "Paul.",
+ "date": "About AD 48–55.",
+ "to": "Churches in Galatia (in modern Turkey).",
+ "why": "A passionate defence of freedom in Christ: Gentiles are part of God’s people by faith, not by circumcision and the law.",
+ "story": "Sometimes called the charter of Christian freedom; it lists the fruit of the Spirit.",
+ "genre": "A sharp, urgent letter.",
+ "structure": [["Paul’s gospel came from Christ", 1, 2], ["Faith and the promise to Abraham", 3, 4], ["Freedom and the Spirit", 5, 6]],
+ "debate": "Whether it was written to north or south Galatia, and its timing relative to the Jerusalem council in Acts 15."
+},
+"Ephesians": {
+ "author": "Paul; some scholars think a follower wrote in his name.",
+ "date": "About AD 60–62, from prison.",
+ "to": "Probably a circular letter to churches around Ephesus.",
+ "why": "God’s plan to unite all things in Christ, Jews and Gentiles as one body, and how that new life looks at home and in the world.",
+ "story": "A high view of the church and of grace: “by grace you have been saved through faith.”",
+ "genre": "Letter: praise and teaching, then practical instruction.",
+ "structure": [["Blessings and grace", 1, 3], ["Living as one new people", 4, 6]],
+ "debate": "Authorship, and the household codes (5:21–6:9)."
+},
+"Philippians": {
+ "author": "Paul, with Timothy.",
+ "date": "About AD 60–62, from prison.",
+ "to": "The church in Philippi, Paul’s close friends and supporters.",
+ "why": "A warm letter of thanks and joy, centred on Christ who humbled himself and was exalted.",
+ "story": "Contains the Christ hymn (2:6–11), perhaps one of the earliest Christian songs.",
+ "genre": "A friendship letter.",
+ "structure": [["Thanks and Paul’s situation", 1, 1], ["The mind of Christ", 2, 2], ["Knowing Christ", 3, 3], ["Joy and peace", 4, 4]],
+ "debate": "Where Paul was imprisoned (Rome, Ephesus or Caesarea)."
+},
+"Colossians": {
+ "author": "Paul, with Timothy; some scholars think a follower.",
+ "date": "About AD 60–62.",
+ "to": "The church in Colossae, which Paul had not visited.",
+ "why": "Christ is supreme over all creation and powers, so believers need nothing added to him.",
+ "story": "Its poem of Christ as the image of the invisible God (1:15–20) is a key text for the church’s understanding of who Jesus is.",
+ "genre": "Letter.",
+ "structure": [["The supremacy of Christ", 1, 2], ["New life in Christ", 3, 4]],
+ "debate": "The nature of the “Colossian heresy” and authorship."
+},
+"1 Thessalonians": {
+ "author": "Paul, with Silas and Timothy.",
+ "date": "About AD 50, perhaps the earliest New Testament book.",
+ "to": "A young church in Thessalonica facing persecution.",
+ "why": "Encouragement for new believers, and comfort about those who have died before Jesus returns.",
+ "story": "Probably the oldest Christian writing we have.",
+ "genre": "Pastoral letter.",
+ "structure": [["Thanks and memories", 1, 3], ["Living to please God and the Lord’s coming", 4, 5]],
+ "debate": "What 4:13–18 teaches about the end, including the idea of a “rapture”."
+},
+"2 Thessalonians": {
+ "author": "Paul; some scholars question it.",
+ "date": "About AD 51.",
+ "to": "The same church, confused about the end.",
+ "why": "The day of the Lord has not yet come; keep working and stand firm.",
+ "story": "A short follow-up to the first letter.",
+ "genre": "Letter.",
+ "structure": [["Comfort in persecution", 1, 1], ["The man of lawlessness", 2, 2], ["Against idleness", 3, 3]],
+ "debate": "Authorship and the identity of “the restrainer”."
+},
+"1 Timothy": {
+ "author": "Paul; many scholars think a later follower.",
+ "date": "About AD 62–64, or later.",
+ "to": "Timothy, Paul’s co-worker leading the church in Ephesus.",
+ "why": "Guidance on sound teaching, prayer, church leaders, widows and money.",
+ "story": "One of the three “Pastoral Letters” about caring for churches.",
+ "genre": "Letter of instruction to a church leader.",
+ "structure": [["Sound teaching", 1, 1], ["Worship and leaders", 2, 3], ["Timothy’s ministry", 4, 6]],
+ "debate": "Authorship and 2:11–15 on women teaching."
+},
+"2 Timothy": {
+ "author": "Paul.",
+ "date": "About AD 64–67, from prison in Rome near the end of his life.",
+ "to": "Timothy.",
+ "why": "Paul’s last letter: guard the gospel, endure hardship, and preach the word.",
+ "story": "Paul’s farewell: “I have fought the good fight, I have finished the course.”",
+ "genre": "A farewell letter.",
+ "structure": [["Do not be ashamed", 1, 2], ["Hard times and Scripture", 3, 3], ["Paul’s farewell", 4, 4]],
+ "debate": "Authorship, though its personal details persuade many it is Paul’s."
+},
+"Titus": {
+ "author": "Paul.",
+ "date": "About AD 63–65.",
+ "to": "Titus, organizing churches on Crete.",
+ "why": "Appoint good leaders and teach a way of life that fits God’s grace.",
+ "story": "Its summaries of grace (2:11–14; 3:4–7) are among the clearest in the New Testament.",
+ "genre": "Pastoral letter.",
+ "structure": [["Leaders", 1, 1], ["Teaching each group", 2, 2], ["Doing good", 3, 3]],
+ "debate": "Authorship, with the other Pastoral Letters."
+},
+"Philemon": {
+ "author": "Paul.",
+ "date": "About AD 60–62.",
+ "to": "Philemon, a church host in Colossae.",
+ "why": "Paul appeals for Onesimus, a runaway slave who became a Christian, to be welcomed back as a brother.",
+ "story": "A small letter about how the gospel changes relationships.",
+ "genre": "A personal letter of appeal.",
+ "structure": [["An appeal for Onesimus", 1, 1]],
+ "debate": "What Paul is asking Philemon to do, and what the letter implies about slavery."
+},
+"Hebrews": {
+ "author": "Unknown; suggestions include Apollos, Barnabas and Priscilla.",
+ "date": "Probably before AD 70.",
+ "to": "Jewish Christians tempted to turn back.",
+ "why": "Jesus is greater than angels, Moses and the priesthood; his sacrifice is once for all. Hold on in faith.",
+ "story": "The great explanation of how the Old Testament’s priests, sacrifices and covenant point to Christ.",
+ "genre": "A sermon sent as a letter: “a word of exhortation”.",
+ "structure": [["Greater than angels and Moses", 1, 4], ["The great high priest", 5, 7], ["The new covenant and one sacrifice", 8, 10], ["Faith and endurance", 11, 13]],
+ "debate": "Who wrote it, and the warning passages (6:4–6) about falling away."
+},
+"James": {
+ "author": "James, the brother of Jesus and leader of the Jerusalem church.",
+ "date": "About AD 45–62.",
+ "to": "“the twelve tribes which are in the Dispersion”: Jewish Christians scattered abroad.",
+ "why": "Practical wisdom: faith shows itself in action, in controlling the tongue and caring for the poor.",
+ "story": "The New Testament’s book of wisdom, echoing the Sermon on the Mount.",
+ "genre": "A letter of wisdom sayings and short sermons.",
+ "structure": [["Trials and wisdom", 1, 1], ["Faith that works", 2, 2], ["The tongue and wisdom from above", 3, 4], ["Patience and prayer", 5, 5]],
+ "debate": "How 2:24 fits with Paul on faith; Luther called it “a letter of straw”, though most readers see the two as complementary."
+},
+"1 Peter": {
+ "author": "Peter, with Silvanus’s help.",
+ "date": "About AD 62–64, from Rome (“Babylon”).",
+ "to": "Christians scattered across Asia Minor facing hostility.",
+ "why": "Hope for suffering believers: you are God’s people, so live well among outsiders and follow Christ’s example.",
+ "story": "It applies Israel’s titles to the church: “a royal priesthood, a holy nation.”",
+ "genre": "A circular letter.",
+ "structure": [["A living hope", 1, 2], ["Living well among others", 3, 4], ["Shepherds and the flock", 5, 5]],
+ "debate": "Authorship, and the meaning of Christ preaching to “the spirits in prison” (3:19)."
+},
+"2 Peter": {
+ "author": "Peter; many scholars think a later follower.",
+ "date": "About AD 64–68, or later.",
+ "to": "Believers facing false teachers.",
+ "why": "Grow in godliness, trust Scripture, and do not doubt the Lord’s return.",
+ "story": "It mentions Paul’s letters as Scripture.",
+ "genre": "A farewell testament.",
+ "structure": [["Growing in faith", 1, 1], ["False teachers", 2, 2], ["The day of the Lord", 3, 3]],
+ "debate": "Authorship, and its close relationship to Jude."
+},
+"1 John": {
+ "author": "Traditionally John the apostle.",
+ "date": "About AD 90–100.",
+ "to": "Churches unsettled by teachers who had left.",
+ "why": "How to know you belong to God: walking in the light, loving one another, and believing that Jesus came in the flesh.",
+ "story": "“God is love” (4:8) is one of the Bible’s simplest summaries.",
+ "genre": "A sermon-like letter.",
+ "structure": [["Walking in the light", 1, 2], ["Children of God", 3, 3], ["God is love", 4, 4], ["Assurance", 5, 5]],
+ "debate": "Who the opponents were, and the late added words in 5:7–8."
+},
+"2 John": {
+ "author": "“The elder”, traditionally John.",
+ "date": "About AD 90–100.",
+ "to": "“The chosen lady and her children”, probably a church.",
+ "why": "Walk in love and truth, and do not welcome deceivers.",
+ "story": "A short companion to 1 John.",
+ "genre": "A brief letter.",
+ "structure": [["Truth and love", 1, 1]],
+ "debate": "Whether the lady is a person or a church."
+},
+"3 John": {
+ "author": "“The elder”, traditionally John.",
+ "date": "About AD 90–100.",
+ "to": "Gaius, a church member.",
+ "why": "Praise for Gaius’s hospitality, and a warning about Diotrephes, a controlling leader.",
+ "story": "A glimpse of everyday life in an early house church.",
+ "genre": "A brief personal letter.",
+ "structure": [["Hospitality and leadership", 1, 1]],
+ "debate": "The relationship between the elder and Diotrephes."
+},
+"Jude": {
+ "author": "Jude, brother of James and of Jesus.",
+ "date": "About AD 65–80.",
+ "to": "Believers facing false teachers.",
+ "why": "Contend for the faith, and stay in God’s love; it ends with a famous blessing.",
+ "story": "It quotes the Jewish book of Enoch.",
+ "genre": "A short sermon-letter.",
+ "structure": [["Contend for the faith", 1, 1]],
+ "debate": "Its use of books outside the Old Testament."
+},
+"Revelation": {
+ "author": "John, exiled on Patmos; traditionally the apostle.",
+ "date": "About AD 95, under Domitian (some say about AD 68).",
+ "to": "Seven churches in Asia Minor.",
+ "why": "Visions that pull back the curtain: the Lamb who was slain reigns, evil will be judged, and God will make all things new.",
+ "story": "The last book of the Bible. It gathers images from the whole Old Testament and ends where Genesis began: a garden, a river and the tree of life, now in a city.",
+ "genre": "Apocalypse, prophecy and letter, full of symbols and numbers.",
+ "structure": [["The risen Christ and letters to seven churches", 1, 3], ["The throne and the Lamb", 4, 5], ["Seven seals", 6, 8], ["Seven trumpets", 9, 11], ["The dragon and the beasts", 12, 14], ["Seven bowls", 15, 16], ["Babylon falls", 17, 19], ["The end and the new creation", 20, 22]],
+ "debate": "How to read it: as about the first century (preterist), church history (historicist), the end times (futurist) or timeless symbols (idealist); and the millennium in chapter 20."
+}
+}
