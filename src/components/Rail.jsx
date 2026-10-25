@@ -6,7 +6,7 @@ export default function Rail({ book, chapter, onChapter }) {
   return (
     <aside className="rail" aria-label={`${label} ${chapter} of ${count}`}>
       <div className="eyebrow">{label}</div>
-      <div className={`numeral${chapter >= 100 ? ' is-long' : ''}`} aria-hidden="true">{pad2(chapter)}</div>
+      <div key={`${book}-${chapter}`} className={`numeral${chapter >= 100 ? ' is-long' : ''}`} aria-hidden="true">{pad2(chapter)}</div>
       <div className="numeral-of">of {count} · Book {pad2(bookIndex(book) + 1)} of 66</div>
       <div className="leaf-rule" aria-hidden="true" />
       {count > 1 && (

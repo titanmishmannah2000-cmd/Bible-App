@@ -17,6 +17,14 @@
   --map-river: #7D93B9;
   --initial-ground: #2C4877;
   --shade: rgba(28, 25, 21, 0.38);
+  --lamp: rgba(255, 236, 190, 0.32);
+  --grain-alpha: 0.05;
+  /* Motion: arrive with a long soft ease-out, leave a little quicker with an ease-in. */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in: cubic-bezier(0.55, 0, 0.75, 0.25);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --t-hover: 0.22s;
+  --t-enter: 0.42s;
   --display: 'Cormorant Garamond', Garamond, 'Times New Roman', serif;
   --ui: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --hebrew: 'Frank Ruhl Libre', 'Noto Serif Hebrew', 'Times New Roman', serif;
@@ -26,14 +34,14 @@
   :root:not([data-theme="light"]) {
     --vellum: #15120E; --leaf: #1E1A15; --ink: #ECE4D4; --ink-soft: #A99E8C; --rule: #3A3328;
     --lapis: #93AADB; --gold: #C9A363; --gold-hi: #F0D89A; --rubric: #E08A6E; --mark: rgba(201, 163, 99, 0.28);
-    --map-ground: #1B1813; --map-line: #3A3328; --map-sea: #171410; --map-river: #6F86AE; --initial-ground: #1F2F52; --shade: rgba(0, 0, 0, 0.55);
+    --map-ground: #1B1813; --map-line: #3A3328; --map-sea: #171410; --map-river: #6F86AE; --initial-ground: #1F2F52; --shade: rgba(0, 0, 0, 0.55); --lamp: rgba(201, 163, 99, 0.07); --grain-alpha: 0.07;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --vellum: #15120E; --leaf: #1E1A15; --ink: #ECE4D4; --ink-soft: #A99E8C; --rule: #3A3328;
   --lapis: #93AADB; --gold: #C9A363; --gold-hi: #F0D89A; --rubric: #E08A6E; --mark: rgba(201, 163, 99, 0.28);
-  --map-ground: #1B1813; --map-line: #3A3328; --map-sea: #171410; --map-river: #6F86AE; --initial-ground: #1F2F52; --shade: rgba(0, 0, 0, 0.55);
+  --map-ground: #1B1813; --map-line: #3A3328; --map-sea: #171410; --map-river: #6F86AE; --initial-ground: #1F2F52; --shade: rgba(0, 0, 0, 0.55); --lamp: rgba(201, 163, 99, 0.07); --grain-alpha: 0.07;
   color-scheme: dark;
 }
 
@@ -44,6 +52,32 @@ body {
   -webkit-font-smoothing: antialiased; overflow: hidden;
 }
 button { font: inherit; color: inherit; }
+/* Every control eases between its states instead of snapping. */
+button, a, input {
+  transition: color var(--t-hover) var(--ease-out), background-color var(--t-hover) var(--ease-out),
+    border-color var(--t-hover) var(--ease-out), box-shadow var(--t-hover) var(--ease-out), opacity var(--t-hover) var(--ease-out),
+    text-decoration-color var(--t-hover) var(--ease-out);
+}
+body::after { /* paper grain, drawn once at start */
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 50;
+  background-image: var(--grain, none); opacity: var(--grain-alpha); mix-blend-mode: multiply;
+}
+.lamp {
+  position: fixed; width: 900px; height: 900px; left: 0; top: 0; margin: -450px 0 0 -450px;
+  border-radius: 50%; pointer-events: none; z-index: 0;
+  background: radial-gradient(closest-side, var(--lamp), transparent);
+  opacity: 0; transition: opacity 0.8s var(--ease-out);
+}
+.lamp.is-lit { opacity: 1; }
+.bar, .cols, .canon { position: relative; z-index: 1; }
+
+/* Shared entrances. `page-in` is used for anything that arrives with a new chapter. */
+@keyframes pageIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes riseIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.page-in { animation: pageIn 0.6s var(--ease-out) both; }
+.verses.page-in { animation-duration: 0.75s; animation-delay: 0.06s; }
+.colophon.page-in { animation-delay: 0.2s; }
 :focus-visible { outline: 2px solid var(--lapis); outline-offset: 3px; border-radius: 4px; }
 ::selection { background: var(--mark); }
 * { scrollbar-width: thin; scrollbar-color: var(--rule) transparent; }
@@ -66,8 +100,10 @@ button { font: inherit; color: inherit; }
 .nav { margin-left: auto; display: flex; gap: 4px; }
 .pill {
   height: 40px; padding: 0 16px; border: 0; border-radius: 999px; background: transparent; cursor: pointer;
-  font-size: 13px; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s; white-space: nowrap;
+  font-size: 13px; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
 }
+.pill:active, .chip:active, .icon-btn:active, .round:active:not(:disabled), .close:active, .btn-primary:active { transform: scale(0.96); }
+.pill, .chip, .icon-btn, .round, .close, .btn-primary { transition-property: color, background-color, border-color, box-shadow, opacity, transform; transition-duration: var(--t-hover); transition-timing-function: var(--ease-out); }
 .pill:hover { background: color-mix(in srgb, var(--ink) 7%, transparent); }
 .pill.solid { background: var(--ink); color: var(--vellum); }
 .pill.icon-only { padding: 0 12px; }
@@ -82,7 +118,7 @@ button { font: inherit; color: inherit; }
   width: 232px; flex: 0 0 auto; border-right: 1px solid var(--rule); overflow-y: auto;
   padding: 34px 28px 28px max(28px, env(safe-area-inset-left, 0px)); display: flex; flex-direction: column; gap: 6px;
 }
-.numeral { font-weight: 200; font-size: 132px; line-height: 0.9; letter-spacing: -0.06em; margin-top: 10px; font-variant-numeric: tabular-nums; }
+.numeral { animation: riseIn 0.55s var(--ease-out) both; font-weight: 200; font-size: 132px; line-height: 0.9; letter-spacing: -0.06em; margin-top: 10px; font-variant-numeric: tabular-nums; }
 .numeral.is-long { font-size: 104px; }
 .numeral-of { font-size: 13px; color: var(--ink-soft); }
 .leaf-rule { width: 40px; height: 2px; background: var(--gold); margin: 22px 0 18px; }
@@ -107,8 +143,9 @@ button { font: inherit; color: inherit; }
 .v .n { padding-top: 8px; text-align: right; font-family: var(--ui); font-size: 11px; font-weight: 600; color: var(--rubric); font-variant-numeric: tabular-nums; user-select: none; }
 .v .t { min-width: 0; }
 .v .t .words { box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.v .n { transition: color var(--t-hover) var(--ease-out); }
 .v:hover .n { color: var(--lapis); }
-.v.is-open .n::after { content: "•"; display: block; color: var(--lapis); }
+.v.is-open .n::after { content: "•"; display: block; color: var(--lapis); animation: fadeIn 0.3s var(--ease-out) both; }
 .v.is-lit .words { background: var(--mark); }
 .v.has-notation.is-lit .words { background: none; }
 .v.flash .t { animation: flash 1.8s ease-out; }
@@ -130,8 +167,11 @@ button { font: inherit; color: inherit; }
 
 /* The gloss margin: the open verse's note, or the book's painting as a plate. */
 .gloss-col { grid-column: 2; position: relative; }
+.gloss-slot { position: absolute; left: 0; right: 0; }
+.plate-slot { position: sticky; top: 0; }
+.gloss-fold, .fold { overflow: clip; overflow-clip-margin: 6px; }
 .gloss {
-  position: absolute; left: 0; right: 0; padding: 14px 0 0; border-top: 1px solid var(--gold);
+  position: relative; padding: 14px 0 0; border-top: 1px solid var(--gold);
   font-family: var(--ui); font-size: 13px; line-height: 1.55; color: var(--ink-soft);
 }
 .gloss h3 { margin: 0 0 8px; font-family: var(--display); font-size: 20px; font-style: italic; font-weight: 500; color: var(--ink); }
@@ -150,8 +190,10 @@ button { font: inherit; color: inherit; }
 .chip[aria-pressed="true"] { background: var(--lapis); border-color: var(--lapis); color: var(--leaf); }
 /* The whole painting is always shown, never cropped: full margin width, unless it is taller than
    the visible column, in which case it shrinks to fit that height and the frame hugs it. */
-.plate { position: sticky; top: 0; margin: 0; padding-top: 14px; border-top: 1px solid var(--rule); }
+.plate { margin: 0; padding-top: 14px; border-top: 1px solid var(--rule); }
 .plate .frame { width: fit-content; max-width: 100%; border: 1px solid var(--rule); background: var(--map-ground); line-height: 0; }
+.plate .frame .art { opacity: 0; transition: opacity 0.7s var(--ease-out); }
+.plate .frame.is-loaded .art { opacity: 1; }
 .plate .frame .art { display: block; width: auto; height: auto; max-width: 100%; max-height: calc(100dvh - 250px); }
 .plate figcaption { margin-top: 8px; font-size: 12px; line-height: 1.5; color: var(--ink-soft); }
 .plate figcaption i { display: block; font-family: var(--display); font-size: 16px; color: var(--ink); }
@@ -165,17 +207,33 @@ button { font: inherit; color: inherit; }
 
 /* ── Atlas: the journey map and the threads of scripture share one card ── */
 .atlas { flex: 0 0 clamp(360px, 30vw, 440px); padding: 22px max(24px, env(safe-area-inset-right, 0px)) 22px 0; display: flex; min-width: 0; }
+/* Opening: the column widens from nothing while the card, already at its full
+   width, slides in from the right edge; the verses make room as it comes. */
+@keyframes atlasOpen { from { flex-basis: 0; padding-right: 0; opacity: 0; } 40% { opacity: 1; } }
+@keyframes atlasRise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+@media (min-width: 901px) {
+  .atlas { justify-content: flex-end; overflow: hidden; animation: atlasOpen 0.55s var(--ease-out) backwards; }
+  .cols:not(.is-expanded) .atlas-card { flex: 0 0 auto; width: calc(clamp(360px, 30vw, 440px) - max(24px, env(safe-area-inset-right, 0px))); }
+}
+/* Expanding and returning: the card settles into its new size instead of jumping. */
+@keyframes settleA { from { opacity: 0.35; transform: scale(0.985); } to { opacity: 1; transform: none; } }
+@keyframes settleB { from { opacity: 0.35; transform: scale(0.985); } to { opacity: 1; transform: none; } }
+.cols.is-expanded .atlas-card { animation: settleA 0.5s var(--ease-out); }
+.cols:not(.is-expanded) .atlas-card { animation: settleB 0.5s var(--ease-out); }
+.reader, .rail { animation: fadeIn 0.5s var(--ease-out); }
 .atlas-card { flex: 1 1 auto; min-height: 0; min-width: 0; display: flex; flex-direction: column; background: var(--leaf); border: 1px solid var(--rule); border-radius: 20px; overflow: hidden; }
 .atlas-head { flex: 0 0 auto; display: flex; align-items: center; gap: 4px; padding: 10px 10px 10px 12px; border-bottom: 1px solid var(--rule); }
-.atlas-tab { height: 32px; padding: 0 14px; border-radius: 999px; border: 0; background: transparent; font-size: 12px; font-weight: 500; letter-spacing: 0.04em; color: var(--ink-soft); cursor: pointer; display: inline-flex; align-items: center; gap: 7px; }
+.atlas-tab { position: relative; isolation: isolate; height: 32px; padding: 0 14px; border-radius: 999px; border: 0; background: transparent; font-size: 12px; font-weight: 500; letter-spacing: 0.04em; color: var(--ink-soft); cursor: pointer; display: inline-flex; align-items: center; gap: 7px; }
 .atlas-tab:hover { color: var(--ink); }
-.atlas-tab[aria-selected="true"] { background: var(--ink); color: var(--leaf); }
+.atlas-tab[aria-selected="true"] { color: var(--leaf); }
+.tab-ink { position: absolute; inset: 0; z-index: -1; border-radius: 999px; background: var(--ink); }
 .atlas-tab .n { font-size: 10px; font-weight: 600; opacity: 0.75; }
 .atlas-tools { margin-left: auto; display: flex; gap: 4px; }
 .icon-btn { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--rule); background: transparent; cursor: pointer; display: grid; place-items: center; color: var(--ink); }
 .icon-btn:hover { border-color: var(--lapis); color: var(--lapis); }
 .pane { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
 .pane[hidden] { display: none; }
+.pane:not([hidden]) { animation: fadeIn 0.4s var(--ease-out); }
 
 .map-area { position: relative; flex: 1 1 55%; min-height: 220px; background: var(--map-ground); border-bottom: 1px solid var(--rule); }
 .map-area .map-canvas { position: absolute; inset: 0; }
@@ -185,6 +243,8 @@ button { font: inherit; color: inherit; }
 .map-views button { height: 26px; padding: 0 10px; border: 0; border-radius: 999px; background: none; cursor: pointer; font-size: 11px; font-weight: 500; color: var(--ink-soft); }
 .map-views button:hover { color: var(--ink); }
 .map-views button[aria-checked="true"] { background: var(--ink); color: var(--leaf); }
+.dot { transition: background-color 0.3s var(--ease-out), transform 0.3s var(--ease-out); }
+.dot-hit:hover .dot { transform: scale(1.3); }
 .maplibregl-ctrl-group { background: var(--leaf) !important; border-radius: 999px !important; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12) !important; overflow: hidden; }
 .maplibregl-ctrl-group button { width: 32px !important; height: 32px !important; }
 .maplibregl-ctrl-group button + button { border-top-color: var(--rule) !important; }
@@ -242,7 +302,9 @@ button { font: inherit; color: inherit; }
 .threads-sum { font-size: 13px; color: var(--ink-soft); margin: 0 0 12px; line-height: 1.5; }
 .legend { display: flex; flex-wrap: wrap; gap: 4px 14px; white-space: nowrap; font-size: 11px; color: var(--ink-soft); margin-bottom: 8px; }
 .legend i { display: inline-block; width: 14px; height: 2px; border-radius: 2px; vertical-align: middle; margin-right: 6px; }
-.thread { border-top: 1px solid var(--rule); }
+.thread { border-top: 1px solid var(--rule); animation: riseIn 0.45s var(--ease-out) both; animation-delay: calc(var(--i, 0) * 40ms + 0.1s); }
+.thread-ref { transition: color var(--t-hover) var(--ease-out); }
+.thread-text { transition: color 0.3s var(--ease-out); }
 .thread > button { display: block; width: 100%; text-align: left; padding: 12px 0; border: 0; background: transparent; cursor: pointer; color: var(--ink); }
 .thread-top { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; }
 .thread-ref, .thread-tag { white-space: nowrap; }
@@ -277,8 +339,8 @@ button { font: inherit; color: inherit; }
 .section { flex: 1 0 auto; display: flex; flex-direction: column; gap: 6px; }
 .section-name { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; white-space: nowrap; }
 .ticks { display: flex; gap: 3px; align-items: flex-end; height: 26px; }
-.tick { width: 6px; flex: 0 0 auto; padding: 0; border: 0; background: var(--rule); cursor: pointer; border-radius: 1px; transition: background 0.2s; }
-.tick:hover, .tick:focus-visible { background: var(--ink-soft); }
+.tick { width: 6px; flex: 0 0 auto; padding: 0; border: 0; background: var(--rule); cursor: pointer; border-radius: 1px; transform-origin: bottom; transition: background-color 0.3s var(--ease-out), transform 0.3s var(--ease-out); }
+.tick:hover, .tick:focus-visible { background: var(--ink-soft); transform: scaleY(1.18); }
 .tick.is-thread { background: var(--gold); }
 .tick[aria-current="page"] { background: var(--rubric); }
 
@@ -291,6 +353,19 @@ dialog.sheet[open] { display: flex; flex-direction: column; }
 dialog.sheet.top { margin-top: 10vh; }
 dialog.drawer { margin: 0 0 0 auto; height: 100%; max-height: 100%; border-radius: 0; border-width: 0 0 0 1px; width: min(420px, 100vw); }
 dialog::backdrop { background: var(--shade); backdrop-filter: blur(3px); }
+/* Sheets rise into place and sink away; the drawer slides from the right. */
+@keyframes sheetIn { from { opacity: 0; transform: translateY(14px) scale(0.98); } to { opacity: 1; transform: none; } }
+@keyframes sheetOut { to { opacity: 0; transform: translateY(10px) scale(0.985); } }
+@keyframes drawerIn { from { transform: translateX(100%); } to { transform: none; } }
+@keyframes drawerOut { to { transform: translateX(100%); } }
+@keyframes backdropIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes backdropOut { to { opacity: 0; } }
+dialog.sheet[open] { animation: sheetIn 0.42s var(--ease-out) both; }
+dialog.sheet[open]::backdrop { animation: backdropIn 0.42s var(--ease-out) both; }
+dialog.sheet.is-closing { animation: sheetOut 0.24s var(--ease-in) both; }
+dialog.sheet.is-closing::backdrop { animation: backdropOut 0.24s var(--ease-in) both; }
+dialog.drawer[open] { animation: drawerIn 0.48s var(--ease-out) both; }
+dialog.drawer.is-closing { animation: drawerOut 0.3s var(--ease-in) both; }
 .sheet-head { flex: 0 0 auto; display: flex; align-items: center; gap: 12px; padding: 16px 16px 16px 22px; border-bottom: 1px solid var(--rule); }
 .sheet-title { font-family: var(--display); font-size: 26px; font-weight: 500; font-style: italic; flex: 1 1 auto; min-width: 0; }
 .sheet-sub { font-size: 12px; color: var(--ink-soft); }
@@ -304,6 +379,7 @@ dialog::backdrop { background: var(--shade); backdrop-filter: blur(3px); }
 .hint { font-size: 13px; color: var(--ink-soft); padding: 14px 0 6px; line-height: 1.6; }
 kbd { font-family: var(--ui); font-size: 11px; padding: 1px 6px; border: 1px solid var(--rule); border-radius: 5px; color: var(--ink-soft); }
 .hit {
+  animation: riseIn 0.4s var(--ease-out) both;
   width: 100%; display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 12px; padding: 12px 0; text-align: left; cursor: pointer;
   background: none; border: 0; border-bottom: 1px solid var(--rule); font-family: var(--display); font-size: 18px; line-height: 1.45; color: var(--ink);
 }
@@ -322,16 +398,17 @@ mark { background: var(--mark); color: inherit; border-radius: 2px; padding: 0 1
 .chapters-pick button { height: 44px; border: 1px solid var(--rule); border-radius: 10px; background: none; cursor: pointer; font-size: 14px; font-variant-numeric: tabular-nums; }
 .chapters-pick button:hover { border-color: var(--lapis); color: var(--lapis); }
 .chapters-pick button[aria-current="page"] { background: var(--ink); color: var(--vellum); border-color: var(--ink); }
-.saved-item { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: start; padding: 14px 0; border-bottom: 1px solid var(--rule); }
+.saved-item { animation: riseIn 0.4s var(--ease-out) both; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: start; padding: 14px 0; border-bottom: 1px solid var(--rule); }
 .saved-item .go { background: none; border: 0; padding: 0; text-align: left; cursor: pointer; font-family: var(--display); font-size: 18px; line-height: 1.45; color: var(--ink); }
 .saved-item .go b { display: block; font-family: var(--ui); font-size: 11px; font-weight: 600; letter-spacing: 0.06em; color: var(--rubric); margin-bottom: 2px; }
 .empty { padding: 28px 0; color: var(--ink-soft); font-family: var(--display); font-style: italic; font-size: 19px; line-height: 1.5; }
 .toast {
   position: fixed; left: 50%; bottom: calc(22px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); z-index: 60;
   max-width: calc(100vw - 32px); padding: 12px 18px; border-radius: 999px; background: var(--ink); color: var(--vellum); font-size: 13px;
-  opacity: 0; pointer-events: none; transition: opacity 0.3s;
+  opacity: 0; pointer-events: none; transform: translate(-50%, 12px);
+  transition: opacity 0.3s var(--ease-in), transform 0.3s var(--ease-in);
 }
-.toast.is-on { opacity: 1; }
+.toast.is-on { opacity: 1; transform: translateX(-50%); transition-timing-function: var(--ease-out); transition-duration: 0.45s; }
 
 /* ── Welcome: the verse of the day ── */
 .welcome { position: fixed; inset: 0; z-index: 40; background: var(--vellum); overflow-y: auto; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px max(20px, env(safe-area-inset-right, 0px)) 40px max(20px, env(safe-area-inset-left, 0px)); text-align: center; }
@@ -357,6 +434,11 @@ mark { background: var(--mark); color: inherit; border-radius: 2px; padding: 0 1
 .depth button { height: 28px; padding: 0 14px; border: 0; border-radius: 999px; background: none; font-family: var(--ui); font-size: 12px; font-weight: 500; color: var(--ink-soft); cursor: pointer; }
 .depth button:hover { color: var(--ink); }
 .depth button[aria-checked="true"] { background: var(--ink); color: var(--vellum); }
+.brief { transition: border-left-color 0.4s var(--ease-out); }
+.brief-deep, .brief-part, .term-root, .path-step, .path-chip, .sources, .unchecked { animation: riseIn 0.45s var(--ease-out) both; }
+.path-bar b { transition: width 0.6s var(--ease-out); }
+.path-card { transition: border-color var(--t-hover) var(--ease-out), box-shadow var(--t-hover) var(--ease-out), transform 0.3s var(--ease-out); }
+.path-card:hover { transform: translateY(-2px); }
 .brief p { margin: 0 0 10px; }
 .brief-sum { font-family: var(--display); font-size: 19px; line-height: 1.5; color: var(--ink); }
 .brief-deep { font-size: 13.5px; }
@@ -424,7 +506,7 @@ mark { background: var(--mark); color: inherit; border-radius: 2px; padding: 0 1
 @media (max-width: 1180px) {
   .reader-inner { grid-template-columns: minmax(0, 1fr); padding-left: 40px; }
   .gloss-col { display: none; }
-  .gloss.inline { position: static; margin: 4px 0 18px 44px; }
+  .gloss.inline { margin: 4px 0 18px 44px; }
 }
 @media (max-width: 1100px) {
   .crumb { display: none; }
@@ -445,7 +527,7 @@ mark { background: var(--mark); color: inherit; border-radius: 2px; padding: 0 1
   .leaf-rule, .rail .chapter-grid, .rail .chapters-label { display: none; }
   .reader { overflow: visible; }
   .reader-inner { padding: 28px max(16px, env(safe-area-inset-right, 0px)) 40px max(16px, env(safe-area-inset-left, 0px)); }
-  .atlas { flex: 0 0 auto; padding: 0 max(16px, env(safe-area-inset-right, 0px)) 20px max(16px, env(safe-area-inset-left, 0px)); }
+  .atlas { flex: 0 0 auto; padding: 0 max(16px, env(safe-area-inset-right, 0px)) 20px max(16px, env(safe-area-inset-left, 0px)); overflow: hidden; animation: atlasRise 0.5s var(--ease-out) backwards; }
   .atlas-card { max-height: none; }
   .map-area { flex: 0 0 auto; height: 300px; }
   .stop, .threads-body { flex: 0 0 auto; overflow: visible; }
@@ -472,7 +554,9 @@ mark { background: var(--mark); color: inherit; border-radius: 2px; padding: 0 1
   .hit { grid-template-columns: minmax(0, 1fr); gap: 2px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  *, *::before, *::after, ::backdrop { animation-duration: 0.01ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  .lamp { display: none; }
+  .tick:hover, .path-card:hover, .dot-hit:hover .dot { transform: none; }
 }
 
 /* Sources: small citation numbers in the text and a numbered list beneath. */

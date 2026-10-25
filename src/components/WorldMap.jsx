@@ -5,6 +5,7 @@ import maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { getJourney } from '../data/journeys'
 import { ENGRAVED_LAYERS, addEngraved, engravedImage, applyEngravedTheme, EngravedOverlay } from '../lib/engraved'
+import { EASE_IN, EASE_OUT } from '../lib/motion'
 
 // The route is inked in lapis on every view, like the engraved maps in the margin.
 const INK = '#2C4877'
@@ -446,8 +447,9 @@ export default function WorldMap({ book, chapter, onChapterChange, expanded, onT
           <AnimatePresence mode="wait">
             <motion.div
               key={journey.id + currentIndex}
-              initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0, transition: { duration: 0.42, ease: EASE_OUT } }}
+              exit={{ opacity: 0, y: -4, transition: { duration: 0.18, ease: EASE_IN } }}
               style={{ display: 'flex', flexDirection: 'column', gap: 8 }}
             >
               <div className="eyebrow">Stop {pad(currentIndex + 1)} / {pad(total)} · {journey.name}</div>
@@ -467,13 +469,13 @@ export default function WorldMap({ book, chapter, onChapterChange, expanded, onT
             <button className="round" type="button" onClick={() => pickStop(currentIndex + 1)} disabled={currentIndex === total - 1} aria-label="Next stop"><IconNext /></button>
           </div>
           {activeWaypoint.theology && (
-            <div className="stop-section">
+            <div className="stop-section page-in" key={`why-${journey.id}-${currentIndex}`}>
               <div className="eyebrow">Why it matters</div>
               <p>{activeWaypoint.theology}</p>
             </div>
           )}
-          {activeWaypoint.scripture && <blockquote className="stop-quote">{activeWaypoint.scripture}</blockquote>}
-          {expanded && <section className="insights" aria-label="Insights">More about {activeWaypoint.name} will appear here.</section>}
+          {activeWaypoint.scripture && <blockquote className="stop-quote page-in" key={`q-${journey.id}-${currentIndex}`}>{activeWaypoint.scripture}</blockquote>}
+          {expanded && <section className="insights page-in" aria-label="Insights">More about {activeWaypoint.name} will appear here.</section>}
         </div>
       ) : (
         <div className="stop"><p className="empty-pane" style={{ padding: 0 }}>No journey is mapped for {book} {chapter}.</p></div>

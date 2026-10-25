@@ -17,7 +17,7 @@ export default function BooksSheet({ open, onClose, book, chapter, onSelect }) {
         : <h2 className="sheet-title">The books</h2>}>
       <div className="sheet-body">
         {picked ? (
-          <div className="chapters-pick" role="list" aria-label={`Chapters of ${picked}`}>
+          <div className="chapters-pick page-in" role="list" aria-label={`Chapters of ${picked}`}>
             {Array.from({ length: chaptersOf(picked) }, (_, i) => i + 1).map(c => (
               <button key={c} type="button" role="listitem" onClick={() => go(picked, c)}
                 aria-current={picked === book && c === chapter ? 'page' : undefined}
@@ -25,7 +25,7 @@ export default function BooksSheet({ open, onClose, book, chapter, onSelect }) {
             ))}
           </div>
         ) : (
-          <div className="books-grid">
+          <div className="books-grid page-in">
             {SECTIONS.map(s => (
               <section className="book-sec" key={s.name}>
                 <h3>{s.name}</h3>

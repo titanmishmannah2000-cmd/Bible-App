@@ -5,6 +5,7 @@ import { Lozenge } from './Icons'
 import { PathList } from './PathsSheet'
 import { usePaths } from '../lib/paths'
 import { PATHS_BY_ID } from '../data/paths'
+import { EASE_IN_OUT, EASE_OUT } from '../lib/motion'
 
 const DAILY_VERSES = [
   ['John', 3, 16], ['Psalms', 23, 1], ['Romans', 8, 28], ['Philippians', 4, 13],
@@ -24,7 +25,7 @@ function todaysReference() {
   return { book, chapter, verse }
 }
 
-const rise = (delay) => ({ initial: { opacity: 0, y: 10 }, animate: { opacity: 1, y: 0 }, transition: { delay, duration: 0.8, ease: 'easeOut' } })
+const rise = (delay) => ({ initial: { opacity: 0, y: 10 }, animate: { opacity: 1, y: 0 }, transition: { delay, duration: 0.8, ease: EASE_OUT } })
 
 // The opening page: the verse of the day, then into the book.
 export default function Welcome({ onEnter, onOpenVerse, onChoosePath, resume }) {
@@ -38,13 +39,17 @@ export default function Welcome({ onEnter, onOpenVerse, onChoosePath, resume }) 
   }, [ref])
 
   return (
-    <div className="welcome" role="dialog" aria-label="Welcome to Verbum">
+    <motion.div className="welcome" role="dialog" aria-label="Welcome to Verbum"
+      initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 0.5, ease: EASE_OUT } }}
+      exit={{ opacity: 0, transition: { duration: 0.55, ease: EASE_IN_OUT } }}>
       <div className="welcome-inner">
         <motion.div className="welcome-mark" {...rise(0.1)}><Lozenge size={22} />VERBUM</motion.div>
-        <motion.div className="leaf-rule" initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: 0.4, duration: 0.8 }} />
+        <motion.div className="leaf-rule" initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: 0.4, duration: 0.8, ease: EASE_OUT }} />
         <motion.div className="eyebrow" {...rise(0.5)}>Verse of the day</motion.div>
         <motion.button type="button" className="welcome-verse" {...rise(0.7)} onClick={() => onOpenVerse(ref)} title="Read this verse in its chapter">
-          {text ? `“${text}”` : ' '}
+          {text
+            ? <motion.span key="verse" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.9, ease: EASE_OUT }}>{`“${text}”`}</motion.span>
+            : ' '}
         </motion.button>
         <motion.div className="welcome-ref" {...rise(0.9)}>{ref.book === 'Psalms' ? 'Psalm' : ref.book} {ref.chapter}:{ref.verse}</motion.div>
         <motion.div className="welcome-actions" {...rise(1.1)}>
@@ -63,6 +68,6 @@ export default function Welcome({ onEnter, onOpenVerse, onChoosePath, resume }) 
           <PathList onChoose={onChoosePath} />
         </motion.section>
       </div>
-    </div>
+    </motion.div>
   )
 }

@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { HashRouter } from 'react-router-dom'
+import { MotionConfig } from 'framer-motion'
 // Fonts are bundled with the app so they work offline and never flash.
 // Cormorant Garamond sets the text, Inter the interface, Frank Ruhl Libre the Hebrew.
 import '@fontsource/cormorant-garamond/latin-400.css'
@@ -20,8 +21,11 @@ import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <HashRouter>
-      <App />
-    </HashRouter>
+    {/* "user" follows the reader's reduced-motion setting for every animation. */}
+    <MotionConfig reducedMotion="user">
+      <HashRouter>
+        <App />
+      </HashRouter>
+    </MotionConfig>
   </StrictMode>,
 )

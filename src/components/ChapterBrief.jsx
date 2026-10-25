@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { GLOSSARY_BY_ID } from '../data/glossary'
 import { PATHS_BY_ID } from '../data/paths'
 import { useDepth, setDepth } from '../lib/prefs'
@@ -7,6 +8,7 @@ import { useChapterNotes, useBookContext, partOf } from '../lib/notes'
 import { displayBook } from '../data/canon'
 import { cite } from '../lib/sources'
 import { CitedText, SourceList, Unchecked } from './Cited'
+import { useUnfold } from '../lib/motion'
 
 const refLabel = (book, chapter) => `${displayBook(book, chapter)} ${chapter}`
 
@@ -96,6 +98,7 @@ export default function ChapterBrief({ book, chapter, termIds, onNavigate, onOpe
   const { parts: [whyParts, deepParts], sources } = cite([bookLine, deeper ? note?.d : ''])
   const sourced = notes?._sourced && (chapter !== 1 || context?.sourced)
   const toVerse = (b, c, v) => onNavigate(b, c, v)
+  const unfold = useUnfold()
 
   return (
     <div className="brief-wrap">
@@ -133,7 +136,11 @@ export default function ChapterBrief({ book, chapter, termIds, onNavigate, onOpe
                   onClick={() => setOpenTerm(openTerm === id ? null : id)}>{GLOSSARY_BY_ID[id].term}</button>
               ))}
             </div>
-            {openTerm && <Term id={openTerm} deeper={deeper} />}
+            <AnimatePresence initial={false} mode="wait">
+              {openTerm && (
+                <motion.div key={openTerm} className="fold" {...unfold}><Term id={openTerm} deeper={deeper} /></motion.div>
+              )}
+            </AnimatePresence>
           </div>
         )}
       </section>

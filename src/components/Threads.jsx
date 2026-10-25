@@ -1,8 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { BOOKS, CHAPTER_COUNTS } from '../data/books'
 import { ALL_BOOKS } from '../lib/bible'
 import { toThread, threadsFor, threadText } from '../lib/threads'
 import { displayBook } from '../data/canon'
+import { useFade } from '../lib/motion'
 
 // The arc map: the 66 books along a baseline, Old Testament on the left and
 // New on the right. Each thread is an arc from the open book to the book it
@@ -26,6 +28,7 @@ export default function Threads({ book, chapter, verse, data, onNavigate }) {
   const [openRef, setOpenRef] = useState(null)
   const [texts, setTexts] = useState({})
   const name = displayBook(book, chapter)
+  const reveal = useFade({ y: -4, enter: 0.3, leave: 0.16 })
 
   // Every thread leaving this chapter, for the faint web and the overview list.
   const chapterThreads = useMemo(() => {
@@ -120,10 +123,11 @@ export default function Threads({ book, chapter, verse, data, onNavigate }) {
             <span>Thicker line, stronger link</span>
           </div>
         )}
-        {list.map(t => {
+        {list.map((t, k) => {
           const isOpen = openRef === t.ref
           return (
             <div key={`${t.from || ''}-${t.ref}`} className={`thread${t.nt ? ' nt' : ''}${isOpen ? ' is-open' : ''}`}
+              style={{ '--i': Math.min(k, 12) }}
               onMouseEnter={() => setFocus(t.ref)} onMouseLeave={() => setFocus(openRef)}>
               <button type="button" aria-expanded={isOpen} onFocus={() => setFocus(t.ref)}
                 onClick={() => { setOpenRef(isOpen ? null : t.ref); setFocus(isOpen ? null : t.ref) }}>
@@ -135,9 +139,11 @@ export default function Threads({ book, chapter, verse, data, onNavigate }) {
                 {t.from && <div className="thread-from">FROM VERSE {t.from}</div>}
                 <p className="thread-text">{texts[t.ref] ?? '…'}</p>
               </button>
-              {isOpen && (
-                <button type="button" className="link-btn" onClick={() => onNavigate(t.book, t.chapter, t.v1)}>Read {t.ref} in context →</button>
-              )}
+              <AnimatePresence initial={false}>
+                {isOpen && (
+                  <motion.button key="read" type="button" className="link-btn" {...reveal} onClick={() => onNavigate(t.book, t.chapter, t.v1)}>Read {t.ref} in context →</motion.button>
+                )}
+              </AnimatePresence>
             </div>
           )
         })}

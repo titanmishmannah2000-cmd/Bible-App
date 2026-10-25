@@ -1,7 +1,9 @@
 import { lazy, Suspense, useEffect } from 'react'
+import { motion, useReducedMotion } from 'framer-motion'
 import Threads from './Threads'
 import { IconClose, IconExpand } from './Icons'
 import { threadsFor } from '../lib/threads'
+import { EASE_IN, EASE_IN_OUT, narrowScreen } from '../lib/motion'
 
 // The map library is large, so it loads in parallel with the first chapter.
 const WorldMap = lazy(() => import('./WorldMap'))
@@ -10,6 +12,16 @@ export default function Atlas({
   tab, onTab, book, chapter, verse, threads, onChapterChange, onNavigate, expanded, onToggleExpand, onClose,
 }) {
   const count = verse ? threadsFor(threads, chapter, verse).length : 0
+  const reduced = useReducedMotion()
+
+  // The panel opens with a CSS entrance (it widens from the right edge while the
+  // verses make room). Closing runs here: the column narrows to nothing, so the
+  // verses ease back across instead of jumping. On phones it folds up instead.
+  const exit = reduced
+    ? { opacity: 0, transition: { duration: 0 } }
+    : narrowScreen()
+      ? { opacity: 0, height: 0, paddingBottom: 0, transition: { duration: 0.34, ease: EASE_IN_OUT } }
+      : { flexBasis: 0, paddingRight: 0, opacity: 0, transition: { flexBasis: { duration: 0.42, ease: EASE_IN_OUT }, paddingRight: { duration: 0.42, ease: EASE_IN_OUT }, opacity: { duration: 0.38, ease: EASE_IN } } }
 
   // Escape leaves the expanded view.
   useEffect(() => {
@@ -27,15 +39,17 @@ export default function Atlas({
   }
 
   return (
-    <aside className="atlas" id="atlas" aria-label="Atlas">
+    <motion.aside className="atlas" id="atlas" aria-label="Atlas" exit={exit}>
       <div className="atlas-card">
         <div className="atlas-head">
           <div role="tablist" aria-label="Atlas" onKeyDown={onTabKey} style={{ display: 'flex', gap: 4 }}>
             <button className="atlas-tab" type="button" role="tab" id="tab-journey" aria-controls="pane-journey"
-              aria-selected={tab === 'journey'} tabIndex={tab === 'journey' ? 0 : -1} onClick={() => onTab('journey')}>Journey</button>
+              aria-selected={tab === 'journey'} tabIndex={tab === 'journey' ? 0 : -1} onClick={() => onTab('journey')}>
+              {tab === 'journey' && <TabInk />}<span>Journey</span>
+            </button>
             <button className="atlas-tab" type="button" role="tab" id="tab-threads" aria-controls="pane-threads"
               aria-selected={tab === 'threads'} tabIndex={tab === 'threads' ? 0 : -1} onClick={() => onTab('threads')}>
-              Threads {count > 0 && <span className="n">{count}</span>}
+              {tab === 'threads' && <TabInk />}<span>Threads</span> {count > 0 && <span className="n">{count}</span>}
             </button>
           </div>
           <div className="atlas-tools">
@@ -55,6 +69,11 @@ export default function Atlas({
           {tab === 'threads' && <Threads key={`${book}-${chapter}-${verse}`} book={book} chapter={chapter} verse={verse} data={threads} onNavigate={onNavigate} />}
         </div>
       </div>
-    </aside>
+    </motion.aside>
   )
+}
+
+// The dark pill behind the chosen tab slides across to the other tab.
+function TabInk() {
+  return <motion.span className="tab-ink" layoutId="atlas-tab-ink" aria-hidden="true" transition={{ type: 'spring', stiffness: 420, damping: 36 }} />
 }

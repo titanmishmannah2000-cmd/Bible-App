@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion'
 import { BOOK_THEMES, DEFAULT_THEME } from './data/books'
 import { BOOK_PAINTINGS, DEFAULT_PAINTING } from './data/paintings'
 import { parseReadingPath, readingPath } from './lib/routes'
@@ -19,6 +20,7 @@ import SavedSheet from './components/SavedSheet'
 import Welcome from './components/Welcome'
 import PathsSheet from './components/PathsSheet'
 import AboutSheet from './components/AboutSheet'
+import Ambience from './components/Ambience'
 
 const LAST_READ_KEY = 'verbum-last-read'
 const SOUND_KEY = 'verbum-sound'
@@ -131,14 +133,18 @@ export default function App() {
 
   return (
     <div className="app-shell">
-      {!entered && (
-        <Welcome
-          onEnter={enter}
-          onChoosePath={choosePath}
-          onOpenVerse={(r) => goTo(r.book, r.chapter, r.verse || null)}
-          resume={lastRead?.book ? lastRead : null}
-        />
-      )}
+      <Ambience />
+      <AnimatePresence>
+        {!entered && (
+          <Welcome
+            key="welcome"
+            onEnter={enter}
+            onChoosePath={choosePath}
+            onOpenVerse={(r) => goTo(r.book, r.chapter, r.verse || null)}
+            resume={lastRead?.book ? lastRead : null}
+          />
+        )}
+      </AnimatePresence>
 
       {entered && (
         <>
@@ -167,17 +173,20 @@ export default function App() {
               onOpenPaths={() => setSheet('paths')}
               onOpenAbout={() => setSheet('about')}
             />
-            {atlasOpen && (
-              <Atlas
-                tab={atlasTab} onTab={chooseTab}
-                book={book} chapter={chapter} verse={openVerse}
-                threads={threads}
-                onChapterChange={(c) => goTo(book, c)}
-                onNavigate={goTo}
-                expanded={expanded} onToggleExpand={toggleExpanded}
-                onClose={() => showAtlas(false)}
-              />
-            )}
+            <AnimatePresence>
+              {atlasOpen && (
+                <Atlas
+                  key="atlas"
+                  tab={atlasTab} onTab={chooseTab}
+                  book={book} chapter={chapter} verse={openVerse}
+                  threads={threads}
+                  onChapterChange={(c) => goTo(book, c)}
+                  onNavigate={goTo}
+                  expanded={expanded} onToggleExpand={toggleExpanded}
+                  onClose={() => showAtlas(false)}
+                />
+              )}
+            </AnimatePresence>
           </div>
 
           <Canon book={book} targets={targets} onSelectBook={(b) => goTo(b, 1)} />

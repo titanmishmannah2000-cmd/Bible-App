@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react'
 import { annotate } from 'rough-notation'
+import { AnimatePresence, motion } from 'framer-motion'
 import useBible from '../hooks/useBible'
 import { useHighlights, highlightKey, toggleHighlight } from '../lib/highlights'
 import { ALL_BOOKS, TRANSLATION } from '../lib/bible'
@@ -10,6 +11,7 @@ import { glossChapter, glossVerse, splitMarked } from '../lib/glossary'
 import { sectionOf, chaptersOf, displayBook } from '../data/canon'
 import { Lozenge } from './Icons'
 import ChapterBrief, { Term } from './ChapterBrief'
+import { useFade, useUnfold } from '../lib/motion'
 
 const WIDE = '(min-width: 1181px)'
 const subscribeWide = (cb) => { const m = window.matchMedia(WIDE); m.addEventListener('change', cb); return () => m.removeEventListener('change', cb) }
@@ -50,6 +52,9 @@ export default function Reader({
   const { prev, next } = neighbours(book, chapter)
   const section = sectionOf(book)
   const glossary = useMemo(() => glossChapter(verses), [verses])
+  const marginFade = useFade({ x: 10, y: 0 })
+  const unfold = useUnfold()
+  const page = `${book}-${chapter}`
 
   // New chapter: back to the top, or to the verse we were sent to.
   useEffect(() => {
@@ -83,7 +88,8 @@ export default function Reader({
   useLayoutEffect(() => {
     if (!openVerse || !wide || !versesRef.current) return
     const el = document.getElementById(`verse-${openVerse}`)
-    if (el) setGlossTop(el.offsetTop - versesRef.current.offsetTop)
+    // Measured on screen, so the chapter's entrance (a small slide) cannot skew it.
+    if (el) setGlossTop(el.getBoundingClientRect().top - versesRef.current.getBoundingClientRect().top)
   }, [openVerse, wide, verses])
 
   // Arrow keys turn the page.
@@ -124,26 +130,25 @@ export default function Reader({
       lit={!!highlights[highlightKey(book, chapter, open.verse)]}
       onFollow={() => onFollowThreads(open.verse)}
       inline={!wide}
-      top={glossTop}
     />
   )
 
   return (
     <main className="reader" ref={scrollRef} id="reader">
       <div className="reader-inner">
-        <div className="title-block">
+        <div className="title-block page-in" key={`t-${page}`}>
           <div className="eyebrow">{section?.name} · {book === 'Psalms' ? `Psalm ${chapter}` : `Chapter ${chapter}`}</div>
           <h1 className="title">{book === 'Psalms' ? 'Psalms' : book}</h1>
         </div>
         <div className="hair" aria-hidden="true" />
-        <ChapterBrief book={book} chapter={chapter} termIds={loading ? [] : glossary.ids}
+        <ChapterBrief key={`b-${page}`} book={book} chapter={chapter} termIds={loading ? [] : glossary.ids}
           onNavigate={onNavigate} onOpenPaths={onOpenPaths} onOpenAbout={onOpenAbout} />
         {heading && !loading && <div className="superscription">{heading}</div>}
         {loading && <div className="status" role="status">Opening the page…</div>}
         {error && <div className="status" role="alert">{error}. Check that the app’s files are all in place.</div>}
 
         {!loading && !error && (
-          <div className="verses" ref={versesRef}>
+          <div className="verses page-in" key={`v-${page}`} ref={versesRef}>
             {verses.map((v, i) => {
               const lit = !!highlights[highlightKey(book, chapter, v.verse)]
               const initial = i === 0 && /^[A-Za-z]/.test(v.text) ? v.text[0] : null
@@ -169,7 +174,13 @@ export default function Reader({
                       </span>
                     </span>
                   </div>
-                  {!wide && openVerse === v.verse && gloss}
+                  {!wide && (
+                    <AnimatePresence initial={false}>
+                      {openVerse === v.verse && gloss && (
+                        <motion.div key="gloss" className="gloss-fold" {...unfold}>{gloss}</motion.div>
+                      )}
+                    </AnimatePresence>
+                  )}
                 </div>
               )
             })}
@@ -178,13 +189,17 @@ export default function Reader({
 
         {wide && !loading && !error && (
           <div className="gloss-col">
-            {gloss || <MarginPlate painting={painting} />}
+            <AnimatePresence mode="wait" initial={false}>
+              {gloss
+                ? <motion.div key={`g-${page}-${open.verse}`} className="gloss-slot" style={{ top: glossTop }} {...marginFade}>{gloss}</motion.div>
+                : <motion.div key={`p-${book}`} className="plate-slot" {...marginFade}><MarginPlate painting={painting} /></motion.div>}
+            </AnimatePresence>
           </div>
         )}
 
         {!loading && !error && verses.length > 0 && (
           <>
-            <div className="colophon">
+            <div className="colophon page-in">
               <Lozenge size={22} />
               Here ends {book === 'Psalms' ? `Psalm ${chapter}` : `chapter ${chapter} of ${book}`}
             </div>
@@ -202,20 +217,21 @@ export default function Reader({
 
 function MarginPlate({ painting }) {
   const [src, setSrc] = useState(0)
+  const [loaded, setLoaded] = useState(false)
   if (!painting || src >= painting.urls.length) {
     return <div className="margin-hint">Tap a verse to open its gloss and follow its threads.</div>
   }
   return (
     <figure className="plate">
-      <div className="frame">
-        <img className="art" src={painting.urls[src]} alt={`${painting.title}, ${painting.artist}`} loading="lazy" onError={() => setSrc(s => s + 1)} />
+      <div className={`frame${loaded ? ' is-loaded' : ''}`}>
+        <img className="art" onLoad={() => setLoaded(true)} src={painting.urls[src]} alt={`${painting.title}, ${painting.artist}`} loading="lazy" onError={() => setSrc(s => s + 1)} />
       </div>
       <figcaption><i>{painting.title}</i>{painting.artist}</figcaption>
     </figure>
   )
 }
 
-function VerseGloss({ book, chapter, verse, threads, lit, onFollow, inline, top }) {
+function VerseGloss({ book, chapter, verse, threads, lit, onFollow, inline }) {
   const [teaser, setTeaser] = useState(null)
   const deeper = useDepth() === 'deeper'
   const terms = useMemo(() => glossVerse(verse.text), [verse.text])
@@ -265,7 +281,7 @@ function VerseGloss({ book, chapter, verse, threads, lit, onFollow, inline, top 
   }
 
   return (
-    <div className={`gloss${inline ? ' inline' : ''}`} style={inline ? undefined : { top }} onClick={(e) => e.stopPropagation()}>
+    <div className={`gloss${inline ? ' inline' : ''}`} onClick={(e) => e.stopPropagation()}>
       <h3>{reference}</h3>
       {threads.length > 0 ? (
         <>
