@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import Threads from './Threads'
+import Timeline from './Timeline'
 import { IconClose, IconExpand } from './Icons'
 import { threadsFor } from '../lib/threads'
 import { EASE_IN, EASE_IN_OUT, narrowScreen } from '../lib/motion'
@@ -33,7 +34,8 @@ export default function Atlas({
 
   const onTabKey = (e) => {
     if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return
-    const next = tab === 'journey' ? 'threads' : 'journey'
+    const tabs = ['journey', 'threads', 'timeline']
+    const next = tabs[(tabs.indexOf(tab) + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length]
     onTab(next)
     document.getElementById(`tab-${next}`)?.focus()
   }
@@ -49,7 +51,11 @@ export default function Atlas({
             </button>
             <button className="atlas-tab" type="button" role="tab" id="tab-threads" aria-controls="pane-threads"
               aria-selected={tab === 'threads'} tabIndex={tab === 'threads' ? 0 : -1} onClick={() => onTab('threads')}>
-              {tab === 'threads' && <TabInk />}<span>Threads</span> {count > 0 && <span className="n">{count}</span>}
+              {tab === 'threads' && <TabInk />}<span>Echoes</span> {count > 0 && <span className="n">{count}</span>}
+            </button>
+            <button className="atlas-tab" type="button" role="tab" id="tab-timeline" aria-controls="pane-timeline"
+              aria-selected={tab === 'timeline'} tabIndex={tab === 'timeline' ? 0 : -1} onClick={() => onTab('timeline')}>
+              {tab === 'timeline' && <TabInk />}<span>Timeline</span>
             </button>
           </div>
           <div className="atlas-tools">
@@ -67,6 +73,9 @@ export default function Atlas({
         </div>
         <div className="pane" id="pane-threads" role="tabpanel" aria-labelledby="tab-threads" hidden={tab !== 'threads'}>
           {tab === 'threads' && <Threads key={`${book}-${chapter}-${verse}`} book={book} chapter={chapter} verse={verse} data={threads} onNavigate={onNavigate} />}
+        </div>
+        <div className="pane" id="pane-timeline" role="tabpanel" aria-labelledby="tab-timeline" hidden={tab !== 'timeline'}>
+          {tab === 'timeline' && <Timeline key={book} book={book} onNavigate={onNavigate} />}
         </div>
       </div>
     </motion.aside>

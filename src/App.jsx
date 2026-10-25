@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from 'react'
+import { useState, useEffect, useCallback, useMemo, lazy, Suspense } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import { BOOK_THEMES, DEFAULT_THEME } from './data/books'
@@ -8,6 +8,7 @@ import { playScene, stopSound } from './lib/soundscape'
 import { useBookThreads, threadsFor } from './lib/threads'
 import { storage, useToast, setDepth } from './lib/prefs'
 import { startPath, setStep, stepOf } from './lib/paths'
+import { addMemory } from './lib/memory'
 import { PATHS_BY_ID } from './data/paths'
 import TopBar from './components/TopBar'
 import Rail from './components/Rail'
@@ -21,6 +22,12 @@ import Welcome from './components/Welcome'
 import PathsSheet from './components/PathsSheet'
 import AboutSheet from './components/AboutSheet'
 import Ambience from './components/Ambience'
+import Sheet from './components/Sheet'
+import MemorizeSheet from './components/MemorizeSheet'
+import StoryView from './components/StoryView'
+
+// The zoom library is only needed once a painting is opened.
+const PlateViewer = lazy(() => import('./components/PlateViewer'))
 
 const LAST_READ_KEY = 'verbum-last-read'
 const SOUND_KEY = 'verbum-sound'
@@ -39,8 +46,9 @@ export default function App() {
   const [entered, setEntered] = useState(() => !!fromUrl)
   const [openVerse, setOpenVerse] = useState(() => fromUrl?.verse || null)
   const [sheet, setSheet] = useState(null)
+  const [learn, setLearn] = useState(null)
   const [atlasOpen, setAtlasOpen] = useState(() => storage.get(ATLAS_KEY) ?? true)
-  const [atlasTab, setAtlasTab] = useState(() => (storage.get(TAB_KEY) === 'threads' ? 'threads' : 'journey'))
+  const [atlasTab, setAtlasTab] = useState(() => (['threads', 'timeline'].includes(storage.get(TAB_KEY)) ? storage.get(TAB_KEY) : 'journey'))
   const [expanded, setExpanded] = useState(false)
   const [soundOn, setSoundOn] = useState(() => storage.get(SOUND_KEY) === true)
   const toastState = useToast()
@@ -155,6 +163,7 @@ export default function App() {
             onStart={() => setSheet('paths')}
             onSearch={() => setSheet('search')}
             onSaved={() => setSheet('saved')}
+            onMemorize={() => { setLearn(null); setSheet('memorize') }}
             atlasOpen={atlasOpen}
             onToggleAtlas={() => showAtlas(!atlasOpen)}
             soundOn={soundOn}
@@ -169,9 +178,12 @@ export default function App() {
               onNavigate={goTo}
               threads={threads}
               onFollowThreads={followThreads}
+              onLearn={(v) => { setLearn(addMemory(book, chapter, v)); setSheet('memorize') }}
               painting={painting}
               onOpenPaths={() => setSheet('paths')}
               onOpenAbout={() => setSheet('about')}
+              onOpenPlate={() => setSheet('plate')}
+              onOpenStory={() => setSheet('story')}
             />
             <AnimatePresence>
               {atlasOpen && (
@@ -197,6 +209,20 @@ export default function App() {
           <PathsSheet open={sheet === 'paths'} onClose={() => setSheet(null)} onChoose={choosePath} />
           <AboutSheet open={sheet === 'about'} onClose={() => setSheet(null)} book={book} chapter={chapter}
             onSelect={(b, c) => { setSheet(null); goTo(b, c) }} />
+          <Sheet open={sheet === 'plate'} onClose={() => setSheet(null)} variant="full" title={painting.title} label={`Painting: ${painting.title}`}>
+            {sheet === 'plate' && (
+              <Suspense fallback={<div className="empty-pane">Bringing in the painting…</div>}>
+                <PlateViewer painting={painting} onNavigate={(b, c, v) => { setSheet(null); goTo(b, c, v || null) }} />
+              </Suspense>
+            )}
+          </Sheet>
+          <Sheet open={sheet === 'story'} onClose={() => setSheet(null)} variant="full" title={`${book} ${chapter} as a story`} label="Chapter story">
+            {sheet === 'story' && <StoryView key={`${book}-${chapter}`} book={book} chapter={chapter}
+              onStory={(c) => goTo(book, c)}
+              onRead={(b, c, v) => { setSheet(null); goTo(b, c, v || null) }} />}
+          </Sheet>
+          <MemorizeSheet open={sheet === 'memorize'} start={learn} onClose={() => { setSheet(null); setLearn(null) }}
+            onRead={(b, c, v) => { setSheet(null); setLearn(null); goTo(b, c, v || null) }} />
           <SavedSheet open={sheet === 'saved'} onClose={() => setSheet(null)} onSelect={goTo} />
         </>
       )}

@@ -12,6 +12,7 @@ import { sectionOf, chaptersOf, displayBook } from '../data/canon'
 import { Lozenge } from './Icons'
 import ChapterBrief, { Term } from './ChapterBrief'
 import { useFade, useUnfold } from '../lib/motion'
+import { storyFor } from '../data/stories'
 
 const WIDE = '(min-width: 1181px)'
 const subscribeWide = (cb) => { const m = window.matchMedia(WIDE); m.addEventListener('change', cb); return () => m.removeEventListener('change', cb) }
@@ -40,7 +41,7 @@ function pickVoice() {
 }
 
 export default function Reader({
-  book, chapter, focusVerse, openVerse, onOpenVerse, onNavigate, threads, onFollowThreads, painting, onOpenPaths, onOpenAbout,
+  book, chapter, focusVerse, openVerse, onOpenVerse, onNavigate, threads, onFollowThreads, painting, onOpenPaths, onOpenAbout, onOpenPlate, onLearn, onOpenStory,
 }) {
   const { verses, heading, loading, error } = useBible(book, chapter)
   const highlights = useHighlights()
@@ -129,6 +130,7 @@ export default function Reader({
       threads={threadsFor(threads, chapter, open.verse)}
       lit={!!highlights[highlightKey(book, chapter, open.verse)]}
       onFollow={() => onFollowThreads(open.verse)}
+      onLearn={() => onLearn(open.verse)}
       inline={!wide}
     />
   )
@@ -139,6 +141,10 @@ export default function Reader({
         <div className="title-block page-in" key={`t-${page}`}>
           <div className="eyebrow">{section?.name} · {book === 'Psalms' ? `Psalm ${chapter}` : `Chapter ${chapter}`}</div>
           <h1 className="title">{book === 'Psalms' ? 'Psalms' : book}</h1>
+          <div className="title-actions">
+            {storyFor(book, chapter) && <button type="button" className="chip solid" onClick={onOpenStory}>Read this chapter as a story</button>}
+            {!wide && painting && <button type="button" className="chip" onClick={onOpenPlate}>See this book’s painting</button>}
+          </div>
         </div>
         <div className="hair" aria-hidden="true" />
         <ChapterBrief key={`b-${page}`} book={book} chapter={chapter} termIds={loading ? [] : glossary.ids}
@@ -192,7 +198,7 @@ export default function Reader({
             <AnimatePresence mode="wait" initial={false}>
               {gloss
                 ? <motion.div key={`g-${page}-${open.verse}`} className="gloss-slot" style={{ top: glossTop }} {...marginFade}>{gloss}</motion.div>
-                : <motion.div key={`p-${book}`} className="plate-slot" {...marginFade}><MarginPlate painting={painting} /></motion.div>}
+                : <motion.div key={`p-${book}`} className="plate-slot" {...marginFade}><MarginPlate painting={painting} onOpen={onOpenPlate} /></motion.div>}
             </AnimatePresence>
           </div>
         )}
@@ -215,23 +221,24 @@ export default function Reader({
   )
 }
 
-function MarginPlate({ painting }) {
+function MarginPlate({ painting, onOpen }) {
   const [src, setSrc] = useState(0)
   const [loaded, setLoaded] = useState(false)
   if (!painting || src >= painting.urls.length) {
-    return <div className="margin-hint">Tap a verse to open its gloss and follow its threads.</div>
+    return <div className="margin-hint">Tap a verse to see what it means and where the Bible echoes it.</div>
   }
   return (
     <figure className="plate">
-      <div className={`frame${loaded ? ' is-loaded' : ''}`}>
+      <button type="button" className={`frame${loaded ? ' is-loaded' : ''}`} onClick={onOpen} aria-label={`Look closer at ${painting.title}`}>
         <img className="art" onLoad={() => setLoaded(true)} src={painting.urls[src]} alt={`${painting.title}, ${painting.artist}`} loading="lazy" onError={() => setSrc(s => s + 1)} />
-      </div>
+        <span className="frame-hint" aria-hidden="true">Tap to look closer</span>
+      </button>
       <figcaption><i>{painting.title}</i>{painting.artist}</figcaption>
     </figure>
   )
 }
 
-function VerseGloss({ book, chapter, verse, threads, lit, onFollow, inline }) {
+function VerseGloss({ book, chapter, verse, threads, lit, onFollow, onLearn, inline }) {
   const [teaser, setTeaser] = useState(null)
   const deeper = useDepth() === 'deeper'
   const terms = useMemo(() => glossVerse(verse.text), [verse.text])
@@ -286,7 +293,7 @@ function VerseGloss({ book, chapter, verse, threads, lit, onFollow, inline }) {
       {threads.length > 0 ? (
         <>
           <p className="threads-line">
-            <b>{threads.length} thread{threads.length > 1 ? 's' : ''}</b>
+            <b>{threads.length} echo{threads.length > 1 ? 'es' : ''}</b>
             {across.length
               ? ` · ${across.length} ${fromNt ? 'reach back to the Old Testament' : 'into the New Testament'}`
               : ` · all within the ${fromNt ? 'New' : 'Old'} Testament`}
@@ -294,7 +301,7 @@ function VerseGloss({ book, chapter, verse, threads, lit, onFollow, inline }) {
           {teaser && <p className="teaser"><b>{teaser.ref}</b>{teaser.text}</p>}
         </>
       ) : (
-        <p>No cross-references are recorded for this verse.</p>
+        <p>No echoes are recorded for this verse.</p>
       )}
       {terms.length > 0 && (
         <div className="gloss-terms">
@@ -304,7 +311,8 @@ function VerseGloss({ book, chapter, verse, threads, lit, onFollow, inline }) {
       )}
       <div className="actions">
         <button type="button" className="chip" aria-pressed={lit} onClick={illuminate}>{lit ? 'Illuminated' : 'Illuminate'}</button>
-        {threads.length > 0 && <button type="button" className="chip" onClick={onFollow}>Follow the threads</button>}
+        {threads.length > 0 && <button type="button" className="chip" onClick={onFollow}>See where the Bible echoes this</button>}
+        <button type="button" className="chip" onClick={onLearn}>Learn by heart</button>
         <button type="button" className="chip" onClick={copy}>Copy</button>
         <button type="button" className="chip" onClick={share}>Share</button>
         {'speechSynthesis' in window && <button type="button" className="chip" aria-pressed={speaking} onClick={listen}>{speaking ? 'Stop' : 'Listen'}</button>}

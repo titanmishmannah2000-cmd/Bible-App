@@ -1,13 +1,15 @@
 import { useHighlights } from '../lib/highlights'
 import { useDarkTheme, toggleTheme } from '../lib/prefs'
 import { sectionOf, displayBook } from '../data/canon'
-import { IconStart, IconBooks, IconSearch, IconSpark, IconMap, IconSound, IconTheme, Lozenge } from './Icons'
+import { IconStart, IconBooks, IconSearch, IconSpark, IconMap, IconSound, IconTheme, IconHeart, Lozenge } from './Icons'
+import { useMemory, sortedMemory } from '../lib/memory'
 
 export default function TopBar({
-  book, chapter, onHome, onBooks, onStart, onSearch, onSaved, atlasOpen, onToggleAtlas, soundOn, onToggleSound,
+  book, chapter, onHome, onBooks, onStart, onSearch, onSaved, onMemorize, atlasOpen, onToggleAtlas, soundOn, onToggleSound,
 }) {
   const savedCount = Object.keys(useHighlights()).length
   const dark = useDarkTheme()
+  const dueCount = sortedMemory(useMemory()).due.length
 
   return (
     <header className="bar">
@@ -24,6 +26,10 @@ export default function TopBar({
             <IconSpark /><span className="label">Saved</span>
             {savedCount > 0 && <span className="count" aria-label={`${savedCount} saved`}>{savedCount}</span>}
           </button>
+          <button className="pill" type="button" onClick={onMemorize} title="Verses you are learning by heart">
+            <IconHeart /><span className="label">By heart</span>
+            {dueCount > 0 && <span className="count" aria-label={`${dueCount} to practise`}>{dueCount}</span>}
+          </button>
           <button className="pill icon-only" type="button" onClick={onToggleSound} aria-pressed={soundOn}
             aria-label={soundOn ? 'Turn ambient sound off' : 'Turn ambient sound on'} title={soundOn ? 'Ambient sound on' : 'Ambient sound off'}>
             <IconSound on={soundOn} />
@@ -32,7 +38,7 @@ export default function TopBar({
             aria-label={dark ? 'Switch to light pages' : 'Switch to dark pages'} title={dark ? 'Light pages' : 'Dark pages'}>
             <IconTheme dark={!dark} />
           </button>
-          <button className={`pill${atlasOpen ? ' solid' : ''}`} type="button" onClick={onToggleAtlas} aria-pressed={atlasOpen} title="Map and threads">
+          <button className={`pill${atlasOpen ? ' solid' : ''}`} type="button" onClick={onToggleAtlas} aria-pressed={atlasOpen} title="Map, echoes and timeline">
             <IconMap /><span className="label">Atlas</span>
           </button>
         </nav>

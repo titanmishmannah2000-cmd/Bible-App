@@ -56,3 +56,17 @@ export async function threadText(t) {
   const verses = data.chapters[t.chapter - 1] || []
   return verses.filter(([n]) => n >= t.v1 && n <= t.v2).map(([, text]) => text).join(' ')
 }
+
+// How strong an echo is, from how many readers agreed on the link at OpenBible.info.
+export const echoStrength = (votes) => (votes >= 20 ? [3, 'Strong echo'] : votes >= 8 ? [2, 'Clear echo'] : [1, 'Light echo'])
+
+// Echoes grouped by the book they land in, strongest book first.
+export function groupEchoes(list) {
+  const by = new Map()
+  list.forEach(t => {
+    const g = by.get(t.bookIndex) || { bookIndex: t.bookIndex, nt: t.nt, book: t.book, refs: [], s: 0, votes: 0 }
+    g.refs.push(t.ref); g.s = Math.max(g.s, echoStrength(t.votes)[0]); g.votes = Math.max(g.votes, t.votes)
+    by.set(t.bookIndex, g)
+  })
+  return [...by.values()].sort((a, b) => b.votes - a.votes)
+}

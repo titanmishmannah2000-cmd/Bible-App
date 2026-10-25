@@ -94,11 +94,11 @@ export const PATHS = [
     id: 'depth',
     title: 'Studying in depth',
     who: 'You want to see how the whole Bible fits together, with the scholarship behind it.',
-    blurb: 'One key chapter from each of the 66 books, in canonical order, with Deeper notes, the book’s outline and the Threads map open from day one.',
+    blurb: 'One key chapter from each of the 66 books, in canonical order, with Deeper notes, the book’s outline and the Echoes list open from day one.',
     depth: 'deeper',
     threads: true,
     steps: [
-      ['Genesis', 1, 'The prologue to the whole canon: creation as temple, humanity as God’s image. Follow the threads to John 1 and Colossians 1.'],
+      ['Genesis', 1, 'The prologue to the whole canon: creation as temple, humanity as God’s image. Follow its echoes to John 1 and Colossians 1.'],
       ['Exodus', 12, 'Passover: the founding act of redemption, and the frame the Gospels use for Jesus’s death.'],
       ['Leviticus', 16, 'The Day of Atonement, the centre of Leviticus and the key to Hebrews 9–10.'],
       ['Numbers', 14, 'The generation that refuses the land; Hebrews 3–4 reads it as a warning about unbelief.'],

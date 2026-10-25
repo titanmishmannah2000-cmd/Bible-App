@@ -43,3 +43,6 @@ export const Lozenge = ({ size = 18 }) => (
     <path d="M9 5 L13 9 L9 13 L5 9 Z" fill="var(--gold)" />
   </svg>
 )
+export const IconHeart = () => (
+  <svg {...base}><path d="M8 13.6S2.2 10.2 2.2 6.1A2.9 2.9 0 0 1 8 4.6a2.9 2.9 0 0 1 5.8 1.5c0 4.1-5.8 7.5-5.8 7.5Z" /></svg>
+)
