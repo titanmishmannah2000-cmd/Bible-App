@@ -1,90 +1,190 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { TIMELINE, ERA_HELP } from '../data/timeline'
-import { parseReference } from '../lib/bible'
+import { TIMELINE } from '../data/timeline'
+import { REGIONS } from '../data/world'
+import { displayBook } from '../data/canon'
 import { cite } from '../lib/sources'
-import { CitedText, SourceList } from './Cited'
+import { eraFor, eraKey, worldFor, worldById, stripAt, SPLIT } from '../lib/when'
 import { useFade } from '../lib/motion'
+import { CitedText, SourceList } from './Cited'
+import WorldEvent from './WorldEvent'
 
-const reduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
+const FIRST_SHOWN = 5
 
-// History from the oldest event to the newest. Events the Bible tells sit in one
-// lane, what was happening in the world in the other (side by side when there is
-// room, one list with labels when there is not). The book being read is marked
-// and the list opens at it.
-export default function Timeline({ book, onNavigate }) {
-  const { parts, sources } = useMemo(() => cite(TIMELINE.map(e => e.note)), [])
-  const mine = TIMELINE.filter(e => e.books.includes(book))
-  const [open, setOpen] = useState(() => (mine.length ? TIMELINE.indexOf(mine[0]) : null))
-  const list = useRef(null)
+// When the passage being read happened: one card for the chapter, with its date,
+// what it is about, where the date comes from, and what else was going on in the
+// world at the time. Only events the reader has not met yet are listed in full;
+// the rest fold into one line. Tapping an event opens it in full. As the reader
+// moves on into a different part of the story, the card eases over to the next.
+export default function Timeline({ book, chapter, verse, onNavigate }) {
+  const era = eraFor(book, chapter)
+  const key = era ? eraKey(era) : ''
+  const world = useMemo(() => worldFor(era, chapter), [era, chapter])
+  const { parts, sources } = useMemo(
+    () => cite([era?.note || '', ...world.highlights.map(w => w.meets || '')]), [era, world])
+  const fade = useFade({ y: 10, enter: 0.45, leave: 0.2 })
 
-  // Open at the book being read.
+  // The filter and "show more" start afresh for each part of the Bible.
+  const [view, setView] = useState({ key, region: 'all', more: false })
+  if (view.key !== key) setView({ key, region: 'all', more: false })
+
+  // The open event lives in the browser history, so the back button closes it.
+  const location = useLocation()
+  const navigate = useNavigate()
+  const openId = location.state?.worldEvent || null
+  const openList = location.state?.worldList || []
+  const pending = useRef(null)
   useEffect(() => {
-    // Only the panel scrolls, never the page (on phones the panel sits below the text).
-    const first = list.current?.querySelector('.tl-item.is-mine')
-    const pane = list.current
-    if (first && pane && pane.scrollHeight > pane.clientHeight) {
-      const top = first.getBoundingClientRect().top - pane.getBoundingClientRect().top + pane.scrollTop - pane.clientHeight / 3
-      pane.scrollTo({ top: Math.max(0, top), behavior: reduced() ? 'auto' : 'smooth' })
-    }
-  }, [book])
+    if (!openId && pending.current) { const [b, c] = pending.current; pending.current = null; onNavigate(b, c) }
+  }, [openId, onNavigate])
+  const openEvent = (w, list) => navigate(location.pathname, { state: { worldEvent: w.id, worldList: list.map(x => x.id) } })
+  const step = (id) => navigate(location.pathname, { replace: true, state: { ...location.state, worldEvent: id } })
+  const close = () => navigate(-1)
+  const read = (b, c) => { pending.current = [b, c]; navigate(-1) }
 
-  const firstAD = TIMELINE.findIndex(e => e.y > 0)
+  const here = `${displayBook(book, chapter)} ${chapter}${verse ? `:${verse}` : ''}`
+  if (!era) return <div className="empty-pane">No date is recorded for {here} yet.</div>
+  const name = era.from === era.to ? displayBook(book, era.from) : book
+  const span = era.from === era.to ? `${name} ${era.from}` : `${name} ${era.from}–${era.to}`
+
+  const { rulers, newRulers, highlights, fresh, seen } = world
+  const regions = REGION_KEYS.filter(r => fresh.some(w => w.region === r) || seen.some(w => w.region === r))
+  const region = regions.includes(view.region) ? view.region : 'all'
+  const inRegion = (w) => region === 'all' || w.region === region
+  const freshHere = fresh.filter(inRegion)
+  const seenHere = seen.filter(inRegion)
+  const shown = (view.more ? freshHere : freshHere.slice(0, FIRST_SHOWN)).slice().sort((p, q) => p.y0 - q.y0)
+  const hidden = freshHere.length - shown.length
+  // Previous and next in the event view walk through the card in reading order.
+  const order = [...highlights, ...shown, ...seenHere, ...rulers]
+
   return (
-    <div className="timeline" ref={list}>
+    <div className="when">
       <p className="echo-how">
-        History from the oldest event at the top to the newest at the bottom.
-        {' '}<b className="tl-key-bible">Blue</b> events are told in the Bible; <b className="tl-key-world">grey</b> ones happened in the world around it.
-        {mine.length > 0 && <> Events in <b>{book}</b> are marked in gold.</>} Tap any event to read more.
+        When is <b>{here}</b> from? Here is its date, where the date comes from, and what else was going on in the world at the time.
+        It changes by itself as you read on. Tap any world event to read all about it.
       </p>
-      <p className="tl-era-help">{ERA_HELP}</p>
-      {!mine.length && <p className="echo-none">{book} has no dated event on this timeline yet. Scroll to explore the rest.</p>}
 
-      <div className="tl-lanes" aria-hidden="true"><span>In the Bible</span><span>In the world</span></div>
-      <ol className="tl-list">
-        {TIMELINE.map((e, i) => (
-          <li key={e.title} className="tl-row">
-            {i === 0 && <Era label="Before Jesus" sub="BC" />}
-            {i === firstAD && <Era label="After Jesus was born" sub="AD" />}
-            <Entry e={e} parts={parts[i]} mine={e.books.includes(book)} book={book} open={open === i}
-              onToggle={() => setOpen(open === i ? null : i)} onNavigate={onNavigate} />
-          </li>
-        ))}
-      </ol>
-      <p className="threads-src">
-        Every date comes from the Tyndale Open Bible Dictionary. Where scholars disagree, both dates are shown.
-      </p>
-      <SourceList sources={sources} idPrefix="tl-src" onVerse={onNavigate} />
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.article key={key} className="when-card" {...fade}>
+          <span className="eyebrow">{span}</span>
+          <h3 className="when-title">{era.title}</h3>
+          <p className="when-date">
+            {era.when}
+            {era.disputed && <em className="tl-disputed">Scholars disagree</em>}
+          </p>
+          {era.y0 !== null && <Strip era={era} />}
+          <p className="when-note"><CitedText parts={parts[0]} idPrefix="when-src" /></p>
+
+          {highlights.length > 0 && (
+            <section className="when-meets" aria-label="Where the world meets the Bible">
+              <h4 className="eyebrow">Where the world meets the Bible</h4>
+              {highlights.map((w, i) => (
+                <button key={w.id} type="button" className="when-meet" onClick={() => openEvent(w, order)}>
+                  <span className="when-mhead"><span className="when-where">{w.where}</span><b>{w.title}</b><span className="when-wdate">{w.when}</span></span>
+                  <span className="when-mtext">{w.meets ? <CitedText parts={parts[i + 1]} idPrefix="when-src" /> : w.summary}</span>
+                </button>
+              ))}
+            </section>
+          )}
+
+          {rulers.length > 0 && (
+            <section className="when-rulers" aria-label="Ruling the world then">
+              <h4 className="eyebrow">Ruling the world then</h4>
+              <p>
+                {rulers.map((w, i) => (
+                  <span key={w.id}>
+                    {i > 0 && <span className="when-dot" aria-hidden="true"> · </span>}
+                    <button type="button" className="when-ruler" onClick={() => openEvent(w, order)}
+                      title={newRulers.has(w.id) ? 'First time in your reading' : undefined}>
+                      {w.rule}{newRulers.has(w.id) && <i className="when-new" aria-label="new" />}
+                    </button>
+                  </span>
+                ))}
+              </p>
+              {newRulers.size > 0 && <span className="when-key"><i className="when-new" aria-hidden="true" />New to your reading here</span>}
+            </section>
+          )}
+
+          {era.y0 !== null && (
+            <section className="when-world" aria-label="Meanwhile in the world">
+              <h4 className="eyebrow">Meanwhile in the world</h4>
+              {regions.length > 1 && (
+                <div className="when-filters" role="group" aria-label="Show events from">
+                  {['all', ...regions].map(r => (
+                    <button key={r} type="button" className="chip" aria-pressed={region === r}
+                      onClick={() => setView(v => ({ ...v, region: r, more: false }))}>
+                      {r === 'all' ? 'All' : REGIONS[r]}
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              {shown.length > 0 ? (
+                <ol key={region}>
+                  {shown.map((w, i) => (
+                    <li key={w.id} style={{ '--i': i }}>
+                      <button type="button" className="when-item" onClick={() => openEvent(w, order)}>
+                        <span className="when-where">{w.where}</span>
+                        <span className="when-wtitle">{w.title}</span>
+                        <span className="when-wdate">{w.when}</span>
+                        <span className="when-wnote">{w.summary}</span>
+                        <span className="when-open" aria-hidden="true">›</span>
+                      </button>
+                    </li>
+                  ))}
+                </ol>
+              ) : (
+                <p className="when-none">
+                  {seenHere.length ? 'Nothing new to add for these chapters. What was already going on is listed below.' : 'No events from here are recorded for these years.'}
+                </p>
+              )}
+              {hidden > 0 && (
+                <button type="button" className="link-btn when-more" onClick={() => setView(v => ({ ...v, more: true }))}>
+                  Show {hidden} more from this time
+                </button>
+              )}
+
+              {seenHere.length > 0 && (
+                <p className="when-seen">
+                  <span className="when-seen-label">Still going on, shown beside earlier chapters: </span>
+                  {seenHere.map((w, i) => (
+                    <span key={w.id}>
+                      {i > 0 && ', '}
+                      <button type="button" className="when-ruler" onClick={() => openEvent(w, order)}>{w.title}</button>
+                    </span>
+                  ))}
+                </p>
+              )}
+            </section>
+          )}
+          {era.y0 === null && <p className="when-none">There is no date to set beside the rest of the world for these chapters.</p>}
+
+          <SourceList sources={sources} idPrefix="when-src" onVerse={onNavigate} />
+        </motion.article>
+      </AnimatePresence>
+
+      <WorldEvent event={worldById(openId)} list={openList} onStep={step} onClose={close} onRead={read} />
     </div>
   )
 }
 
-function Era({ label, sub }) {
-  return <div className="tl-era"><span>{label}</span><em>{sub}</em></div>
-}
+const REGION_KEYS = Object.keys(REGIONS)
 
-function Entry({ e, parts, mine, book, open, onToggle, onNavigate }) {
-  const reveal = useFade({ y: -4, enter: 0.3, leave: 0.16 })
-  const r = e.ref ? parseReference(e.ref) : null
+// A strip of history from about 2200 BC to AD 100, with this passage marked.
+function Strip({ era }) {
+  const a = stripAt(era.y0) * 100, z = stripAt(era.y1) * 100
   return (
-    <div className={`tl-item ${e.lane}${mine ? ' is-mine' : ''}${open ? ' is-open' : ''}`}>
-      <span className="tl-dot" aria-hidden="true" />
-      <button type="button" className="tl-card" aria-expanded={open} onClick={onToggle}>
-        <span className="tl-when">{e.when}{e.disputed && <em className="tl-disputed">Scholars disagree</em>}</span>
-        <span className="tl-title">{e.title}</span>
-        <span className="tl-tags">
-          <span className="tl-lane">{e.lane === 'bible' ? 'In the Bible' : 'In the world'}</span>
-          {mine && <span className="tl-mine">In {book}</span>}
-        </span>
-      </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div key="more" className="tl-more" {...reveal}>
-            <p><CitedText parts={parts} idPrefix="tl-src" /></p>
-            {r && <button type="button" className="chip solid" onClick={() => onNavigate(r.book, r.chapter, r.verse)}>Read {e.ref.replace('-', '–')} →</button>}
-          </motion.div>
-        )}
-      </AnimatePresence>
+    <div className="when-strip" aria-hidden="true">
+      <div className="when-track">
+        <span className="when-split" style={{ left: `${SPLIT * 100}%` }} />
+        {TIMELINE.map(e => <span key={e.title} className="when-tick" style={{ left: `${stripAt(e.y) * 100}%` }} />)}
+        <span className="when-span" style={{ left: `calc(${a}% - ${z - a < 2 ? 7 : 0}px)`, width: `max(14px, ${z - a}%)` }} />
+      </div>
+      <div className="when-scale">
+        <span style={{ width: `${SPLIT * 100}%` }}>Before Jesus</span><span style={{ width: `${(1 - SPLIT) * 100}%` }}>After Jesus</span>
+      </div>
     </div>
   )
 }

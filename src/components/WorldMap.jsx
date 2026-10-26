@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, useMemo, useCallback } from 'react'
+import TimeRibbon from './TimeRibbon'
 import { motion, AnimatePresence } from 'framer-motion'
 import { IconPrev, IconNext } from './Icons'
 import maplibregl from 'maplibre-gl'
@@ -37,10 +38,10 @@ const raster = (tiles, maxzoom, attribution) => ({ type: 'raster', tiles, tileSi
 const MAP_STYLE = {
   version: 8,
   sources: {
-    topo: raster([`${ESRI}/World_Topo_Map/MapServer/tile/{z}/{y}/{x}`], 16, 'Esri'),
+    topo: raster([`${ESRI}/World_Topo_Map/MapServer/tile/{z}/{y}/{x}`], 16, 'Esri and its data partners'),
     imagery: raster([`${ESRI}/World_Imagery/MapServer/tile/{z}/{y}/{x}`], 17, 'Esri, Maxar'),
     'imagery-labels': raster([`${ESRI}/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}`], 16, 'Esri'),
-    street: raster([`${ESRI}/World_Street_Map/MapServer/tile/{z}/{y}/{x}`], 18, 'Esri, HERE, Garmin, © OpenStreetMap'),
+    street: raster([`${ESRI}/World_Street_Map/MapServer/tile/{z}/{y}/{x}`], 18, 'Esri, HERE, Garmin, © OpenStreetMap contributors'),
     relief: raster([`${ESRI}/World_Physical_Map/MapServer/tile/{z}/{y}/{x}`], 8, 'Esri, US National Park Service'),
   },
   layers: RASTER_LAYERS.map(id => ({
@@ -48,6 +49,15 @@ const MAP_STYLE = {
     layout: { visibility: 'none' },
     paint: id === 'relief' ? { 'raster-saturation': -0.25 } : {},
   })),
+}
+
+// The credit line under the map. Esri asks for "Powered by Esri" and the data
+// providers to stay visible on the map; the Engraved view is drawn from
+// public-domain Natural Earth data.
+function mapCredit(viewId) {
+  const view = MAP_VIEWS.find(v => v.id === viewId)
+  if (!view || view.id === 'engraved') return 'Map drawn by Verbum from Natural Earth data (public domain)'
+  return `Powered by Esri · ${MAP_STYLE.sources[view.layers[0]].attribution}`
 }
 
 function readView() {
@@ -159,7 +169,7 @@ function styleMarker(el, state) {
   }
 }
 
-export default function WorldMap({ book, chapter, onChapterChange, expanded, onToggleExpand }) {
+export default function WorldMap({ book, chapter, onChapterChange, expanded, onToggleExpand, onOpenTimeline, onNavigate }) {
   const mapContainerRef = useRef(null)
   const mapRef = useRef(null)
   const markersRef = useRef([])
@@ -433,8 +443,9 @@ export default function WorldMap({ book, chapter, onChapterChange, expanded, onT
 
   return (
     <>
-      <div className={`map-area view-${view}`}>
+      <div className={`map-area has-credit view-${view}`}>
         <div ref={mapContainerRef} className="map-canvas" />
+        <p key={view} className="map-credit" title={mapCredit(view)}>{mapCredit(view)}</p>
         <div className="map-views" role="radiogroup" aria-label="Map view">
           {MAP_VIEWS.map(v => (
             <button key={v.id} type="button" role="radio" aria-checked={view === v.id} onClick={() => setView(v.id)}>{v.label}</button>
@@ -468,6 +479,7 @@ export default function WorldMap({ book, chapter, onChapterChange, expanded, onT
             </div>
             <button className="round" type="button" onClick={() => pickStop(currentIndex + 1)} disabled={currentIndex === total - 1} aria-label="Next stop"><IconNext /></button>
           </div>
+          <TimeRibbon book={book} chapter={activeWaypoint.chapter} onOpen={onOpenTimeline} onVerse={onNavigate} />
           {activeWaypoint.theology && (
             <div className="stop-section page-in" key={`why-${journey.id}-${currentIndex}`}>
               <div className="eyebrow">Why it matters</div>

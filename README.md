@@ -50,3 +50,9 @@ src/
   data/                   books, canon sections, journeys, paintings
   lib/                    Bible loading and search, threads, routes, highlights, preferences, soundscape
 ```
+
+## License
+
+© 2026 Titan. All rights reserved. Verbum's code, design and its own writing are proprietary: see [`LICENSE`](LICENSE). No permission to copy, modify or redistribute them is granted.
+
+Some parts belong to others and keep their own licenses: the Bible text, open study notes, cross-references, map data and tiles, paintings, fonts and open-source libraries. They are listed in [`NOTICE.md`](NOTICE.md), shown in the app under **Credits and licenses**, and the full software license texts are in `public/third-party-notices.txt` (regenerate with `npm run build:notices`).

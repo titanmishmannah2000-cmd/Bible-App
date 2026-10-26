@@ -24,6 +24,7 @@ import AboutSheet from './components/AboutSheet'
 import Ambience from './components/Ambience'
 import Sheet from './components/Sheet'
 import MemorizeSheet from './components/MemorizeSheet'
+import CreditsSheet from './components/CreditsSheet'
 import StoryView from './components/StoryView'
 
 // The zoom library is only needed once a painting is opened.
@@ -184,6 +185,7 @@ export default function App() {
               onOpenAbout={() => setSheet('about')}
               onOpenPlate={() => setSheet('plate')}
               onOpenStory={() => setSheet('story')}
+              onOpenCredits={() => setSheet('credits')}
             />
             <AnimatePresence>
               {atlasOpen && (
@@ -224,6 +226,7 @@ export default function App() {
           <MemorizeSheet open={sheet === 'memorize'} start={learn} onClose={() => { setSheet(null); setLearn(null) }}
             onRead={(b, c, v) => { setSheet(null); setLearn(null); goTo(b, c, v || null) }} />
           <SavedSheet open={sheet === 'saved'} onClose={() => setSheet(null)} onSelect={goTo} />
+          <CreditsSheet open={sheet === 'credits'} onClose={() => setSheet(null)} />
         </>
       )}
 

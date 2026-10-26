@@ -1,0 +1,62 @@
+VERBUM PROPRIETARY LICENSE
+
+Copyright (c) 2026 Titan. All rights reserved.
+
+1. WHAT THIS COVERS
+
+"The Verbum Material" means everything in this project that was created for
+Verbum and is not listed in NOTICE.md as third-party material, including:
+
+  (a) the source code, build scripts, styling and configuration;
+  (b) the visual design, layout, icons and artwork made for Verbum;
+  (c) the original writing made for Verbum: chapter summaries and notes, book
+      cards, glossary entries, chapter stories, reading paths, journeys and
+      their stop notes, timeline notes, painting guides and all other text
+      in the app that is not the Bible text or a quotation; and
+  (d) the selection, arrangement and presentation of all of the above.
+
+2. NO PERMISSION IS GRANTED
+
+The Verbum Material is the exclusive property of the copyright holder. No
+license or other right is granted by this file, by publishing the code, or
+by making the app available to use. Without the copyright holder's prior
+written permission, no one may:
+
+  (a) copy, reproduce or mirror the Verbum Material, in whole or in part;
+  (b) modify it, translate it, or make works based on it;
+  (c) distribute, publish, sell, rent, sublicense or host it, or offer it as
+      a service;
+  (d) remove or change any copyright, license or attribution notice; or
+  (e) present the Verbum Material, or an app built from it, as their own.
+
+Using the hosted app to read the Bible for personal, non-commercial purposes
+is allowed. Viewing the source code where it is published does not grant any
+of the rights above. Any right the law gives regardless of this license (for
+example fair use or fair dealing) is not limited by it.
+
+3. THIRD-PARTY MATERIAL IS EXCLUDED
+
+Some parts of this project belong to others: the Bible text, open study
+notes, cross-reference data, map data and map imagery, paintings, fonts and
+open-source software. They are listed in NOTICE.md and in the app's
+"Credits and licenses" page. Each remains under its own license, and nothing
+in this file restricts any right that those licenses give. In particular,
+material licensed under Creative Commons Attribution-ShareAlike 4.0 (CC BY-SA
+4.0), and any adaptation of it, stays under CC BY-SA 4.0. The full license
+texts of the open-source software are in public/third-party-notices.txt.
+
+4. NAMES AND LOGOS
+
+No right is granted to use the name or logo of this app, or the name of the
+copyright holder, for any purpose.
+
+5. NO WARRANTY
+
+The Verbum Material is provided "as is", without warranty of any kind. The
+copyright holder is not liable for any claim, damages or other liability
+arising from it or from its use.
+
+6. PERMISSIONS
+
+To ask for permission to use any part of the Verbum Material, contact the
+copyright holder: [contact email].

@@ -83,6 +83,12 @@ const KINDS = {
     by: 'Bible Gateway',
     url: `${BG}/eastons-bible-dictionary/${page}`,
   }),
+  // Encyclopaedia Britannica, for world history outside the Bible, keyed by its
+  // page path and the article's name, such as biography/Confucius:Confucius.
+  brit: (key) => {
+    const [path, ...title] = key.split(':')
+    return { title: 'Encyclopaedia Britannica', detail: title.join(':') || path, by: 'Britannica', url: `https://www.britannica.com/${path}` }
+  },
   // Other published articles, keyed by a short name; they are listed below.
   ref: (key) => ({ ...(REFS[key] || { title: key }) }),
   // The Bible text itself (World English Bible), which opens in the reader.

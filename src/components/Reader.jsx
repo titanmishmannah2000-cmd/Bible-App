@@ -41,7 +41,7 @@ function pickVoice() {
 }
 
 export default function Reader({
-  book, chapter, focusVerse, openVerse, onOpenVerse, onNavigate, threads, onFollowThreads, painting, onOpenPaths, onOpenAbout, onOpenPlate, onLearn, onOpenStory,
+  book, chapter, focusVerse, openVerse, onOpenVerse, onNavigate, threads, onFollowThreads, painting, onOpenPaths, onOpenAbout, onOpenPlate, onLearn, onOpenStory, onOpenCredits,
 }) {
   const { verses, heading, loading, error } = useBible(book, chapter)
   const highlights = useHighlights()
@@ -214,6 +214,7 @@ export default function Reader({
               <span className="line" aria-hidden="true" />
               {next && <button className="link-btn" type="button" onClick={() => onNavigate(next.book, next.chapter)}>{navLabel(next, book)} →</button>}
             </div>
+            <button className="link-btn credits-link" type="button" onClick={onOpenCredits}>Where everything comes from: credits and licenses</button>
           </>
         )}
       </div>

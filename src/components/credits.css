@@ -1,0 +1,23 @@
+/* The Credits and licenses sheet. Typography comes from .about. */
+.credits-lead { margin: 14px 0 4px; font-family: var(--display); font-size: 18px; font-style: italic; color: var(--ink-soft); }
+.credit-group { animation: riseIn 0.45s var(--ease-out) both; }
+.credit-owner b { font-weight: 600; }
+.credit-list { margin: 8px 0 4px; padding: 0; list-style: none; overflow: hidden; }
+.credit { padding: 9px 0; border-top: 1px solid var(--rule); font-family: var(--ui); font-size: 12.5px; line-height: 1.5; overflow-wrap: anywhere; }
+.credit:first-child { border-top: 0; }
+.credit-name { font-weight: 500; color: var(--ink); }
+.credit-by { color: var(--ink-soft); }
+.credit-license { margin-top: 2px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--lapis); }
+.credit-note { margin-top: 3px; color: var(--ink-soft); }
+.credits a { color: inherit; text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 2px; transition: text-decoration-color 0.2s var(--ease-out); }
+.credits a:hover { text-decoration-color: var(--lapis); }
+.credit-license a { text-decoration-color: currentColor; }
+.credit-toggle { padding: 2px 0 6px; }
+.credits-foot { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--ink-soft); }
+.link-btn.credits-link { grid-column: 1; justify-self: center; margin-top: 18px; white-space: normal; text-align: center; font-size: 12.5px; font-weight: 400; color: var(--ink-soft); transition: color 0.25s var(--ease-out); }
+.link-btn.credits-link:hover { color: var(--lapis); }
+
+/* The credit line along the foot of the map, for whichever view is showing.
+   The map stops above it, so the line never covers the map or its marks. */
+.map-area.has-credit .map-canvas, .map-area.has-credit .eng-scale { bottom: 20px; }
+.map-credit { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; height: 20px; margin: 0; padding: 0 10px; background: var(--leaf); border-top: 1px solid var(--rule); font-family: var(--ui); font-size: 10.5px; line-height: 19px; color: var(--ink-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; animation: fadeIn 0.4s var(--ease-out) both; }

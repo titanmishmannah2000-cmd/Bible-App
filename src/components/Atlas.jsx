@@ -68,14 +68,15 @@ export default function Atlas({
         </div>
         <div className="pane" id="pane-journey" role="tabpanel" aria-labelledby="tab-journey" hidden={tab !== 'journey'}>
           <Suspense fallback={<div className="empty-pane">Unrolling the map…</div>}>
-            <WorldMap book={book} chapter={chapter} onChapterChange={onChapterChange} expanded={expanded} onToggleExpand={onToggleExpand} />
+            <WorldMap book={book} chapter={chapter} onChapterChange={onChapterChange} expanded={expanded} onToggleExpand={onToggleExpand}
+              onOpenTimeline={() => onTab('timeline')} onNavigate={onNavigate} />
           </Suspense>
         </div>
         <div className="pane" id="pane-threads" role="tabpanel" aria-labelledby="tab-threads" hidden={tab !== 'threads'}>
           {tab === 'threads' && <Threads key={`${book}-${chapter}-${verse}`} book={book} chapter={chapter} verse={verse} data={threads} onNavigate={onNavigate} />}
         </div>
         <div className="pane" id="pane-timeline" role="tabpanel" aria-labelledby="tab-timeline" hidden={tab !== 'timeline'}>
-          {tab === 'timeline' && <Timeline key={book} book={book} onNavigate={onNavigate} />}
+          {tab === 'timeline' && <Timeline book={book} chapter={chapter} verse={verse} onNavigate={onNavigate} />}
         </div>
       </div>
     </motion.aside>
